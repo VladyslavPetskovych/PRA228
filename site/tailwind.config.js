@@ -11,6 +11,9 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
+        playfair: ['"Playfair Display"', "serif"],
+        robotoCondensed: ['"Roboto Condensed"', "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
     },
   },

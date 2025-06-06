@@ -9,7 +9,7 @@ function MobileMenu({ toggleMenu }) {
         onClick={toggleMenu}
         className="border border-white rounded-full px-6 py-2 text-sm font-bold hover:bg-white hover:text-black transition"
       >
-        Додати оголошення
+        Забронювати
       </button>
     </div>
   );
