@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
-import Logo from "./Logo";
-import Navigation from "./Navigation";
-import ContactAndButton from "./ContactAndButton";
-import MobileMenu from "./MobileMenu";
+import Logo from "./logo";
+import Navigation from "./navigation";
+import ContactAndButton from "./contactAndButton";
+import MobileMenu from "./mobileMenu";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
