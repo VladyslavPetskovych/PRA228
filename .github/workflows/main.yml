@@ -19,7 +19,7 @@ jobs:
       - name: connect and deploy with safe cleanup
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} '
-            cd ${{ secrets.WORK_DIR }} && \
+            cd ${{ secrets.WORK_DIR }} && ls -la && \
             echo "🔄 Updating code..." && \
             docker compose down --remove-orphans && \
             git checkout ${{ secrets.MAIN_BRANCH }} && git pull && \
