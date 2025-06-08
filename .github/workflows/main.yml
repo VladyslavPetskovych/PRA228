@@ -37,7 +37,7 @@ jobs:
               docker builder prune -af
 
               echo "🧹 Pruning volumes except mongo_data..."
-              docker volume ls -qf dangling=true | grep -v -E "^(prano-app_mongo_data)$" | xargs -r docker volume rm
+              docker volume ls -qf dangling=true | grep -v -E "^(prime-yard-apartments-app_mongo_data)$" | xargs -r docker volume rm
 
             else
               echo "✅ Disk usage under control. No cleanup needed."
