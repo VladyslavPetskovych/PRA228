@@ -36,7 +36,7 @@ function WhyUs() {
         {/* Item 3 */}
         <div className="flex flex-col items-center max-w-xs hover:scale-105 transition-transform">
           <TruckIcon className="w-12 h-12 mb-4 text-yellow-600" />
-          <h3 className="text-xl font-bold mb-2">Безкоштовна парковка</h3>
+          <h3 className="text-xl font-bold mb-2">Власна парковка</h3>
           <p className="text-gray-600">
             Вам не потрібно шукати парковку, зручно і безпечно залишайте машину.
           </p>

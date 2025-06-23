@@ -18,7 +18,7 @@ function ContactAndButton() {
         onClick={handleCopy}
         title="Натисніть, щоб скопіювати"
       >
-        +380685888666
+        +380685637315
       </span>
 
       <button className="border border-white rounded-full px-6 py-2 text-sm font-bold hover:bg-white hover:text-black transition">

@@ -8,7 +8,7 @@ function home() {
   return (
     <div>
       <Hero />
-      <WhyUs/>
+      {/* <WhyUs/> */}
       <PlaceToLiveIn />
     </div>
   );
