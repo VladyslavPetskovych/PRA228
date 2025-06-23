@@ -1,0 +1,42 @@
+name: prime-yard-apartments-app
+
+services:
+  api:
+    build:
+      context: ./server
+      target: development
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    networks:
+      - prime-yard-apartments-app
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./site
+      target: development
+    volumes:
+      - ./site:/app
+      - /app/node_modules
+    networks:
+      - prime-yard-apartments-app
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.27.4-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.dev.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - prime-yard-apartments-app
+    depends_on:
+      - web
+    restart: unless-stopped
+
+networks:
+  prime-yard-apartments-app:
+    driver: bridge
