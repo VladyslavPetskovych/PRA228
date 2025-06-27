@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 
+const {roomRouter} = require("./routers");
+
 const app = express();
 
 app.use(cors());
@@ -11,9 +13,11 @@ app.use(express.urlencoded({extended: true}));
 app.get(
     "/",
     (req, res, next) => {
-        return res.json("Hello World!")
+        return res.json("PrimeYardApartments API")
     }
 )
+
+app.use("/rooms", roomRouter)
 
 app.use((err, req, res, next) => {
     const status = err.status || 500;
