@@ -8,6 +8,7 @@ services:
     environment:
       - WUBOOK_API_KEY=${WUBOOK_API_KEY}
       - WUBOOK_LODGING_CODE=${WUBOOK_LODGING_CODE}
+      - API_PASSWORD=${API_PASSWORD}
     volumes:
       - ./server:/app
       - /app/node_modules

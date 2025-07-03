@@ -22,12 +22,32 @@ class RoomController {
         }
     }
 
+    async findAllImages(req, res, next) {
+        try {
+            const images = await roomService.findAllImages();
+
+            return res.json(images)
+        } catch (e) {
+            next(e)
+        }
+    }
+
     async findRoomImages(req, res, next) {
         try {
             const {roomId} = req.params;
-            const room = await roomService.findRoomImages(roomId);
+            const images = await roomService.findRoomImages(roomId);
 
-            return res.json(room)
+            return res.json(images)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async updateImagesFromWubook(req, res, next) {
+        try {
+            await roomService.updateImagesFromWubook()
+
+            return res.sendStatus(200)
         } catch (e) {
             next(e)
         }
