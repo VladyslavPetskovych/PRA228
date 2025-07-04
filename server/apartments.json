@@ -1,0 +1,151 @@
+[
+  {
+    "id": "0",
+    "idWoodoo": "700258",
+    "name": "Квартира з балконом",
+    "image": "apt.jpg",
+    "square": "50 м²",
+    "numRooms": 2,
+    "beds": 2,
+    "guests": 4,
+    "pricePerDay": 1700,
+    "pricePerMonth": 30000,
+    "category": "Апартаменти",
+    "amenities": [
+      "Кондиціонер",
+      "Безкоштовний Wi-Fi",
+      "Кухня",
+      "Посудомийна машина",
+      "Телевізор з плоским екраном",
+      "Пральна машина",
+      "Вид на місто"
+    ],
+    "imgUrls": [
+      "https://wubook.net/wbkd/wbkimgs/room/1079099.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079100.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079101.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079102.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079103.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079104.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079105.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079106.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079107.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079108.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079109.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079110.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079112.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079113.jpg"
+    ]
+  },
+  {
+    "id": "1",
+    "idWoodoo": "700257",
+    "name": "Квартира з балконом Люкс",
+    "image": "lux.jpg",
+    "square": "50 м²",
+    "numRooms": 2,
+    "beds": 2,
+    "guests": 4,
+    "pricePerDay": 1900,
+    "pricePerMonth": 32000,
+    "category": "Люкс",
+    "amenities": [
+      "Кондиціонер",
+      "Smart TV",
+      "Кухня",
+      "Посудомийка",
+      "Балкон",
+      "Пральна машина"
+    ],
+    "imgUrls": [
+      "https://wubook.net/wbkd/wbkimgs/room/1079114.jpg"
+    ]
+  },
+  {
+    "id": "2",
+    "idWoodoo": "700259",
+    "name": "Квартира - Смарт Люкс",
+    "image": "smart.jpg",
+    "square": "35 м²",
+    "numRooms": 1,
+    "beds": 1,
+    "guests": 2,
+    "pricePerDay": 1200,
+    "pricePerMonth": 25000,
+    "category": "Смарт",
+    "amenities": [
+      "Wi-Fi",
+      "Кухонний блок",
+      "Кондиціонер",
+      "Телевізор",
+      "Душова кабіна"
+    ],
+    "imgUrls": [
+      "https://wubook.net/wbkd/wbkimgs/room/1079088.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079089.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079090.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079091.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079092.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079093.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079094.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079095.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079096.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079097.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079098.jpg"
+    ]
+  },
+  {
+    "id": "3",
+    "idWoodoo": "700244",
+    "name": "Двокімнатна квартира",
+    "image": "two.jpg",
+    "square": "60 м²",
+    "numRooms": 2,
+    "beds": 3,
+    "guests": 5,
+    "pricePerDay": 2000,
+    "pricePerMonth": 35000,
+    "category": "Комфорт",
+    "amenities": [
+      "Велика кухня",
+      "Духовка",
+      "Wi-Fi",
+      "Пральна машина",
+      "Балкон",
+      "Smart TV"
+    ],
+    "imgUrls": [
+      "https://wubook.net/wbkd/wbkimgs/room/1078427.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1078428.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1078429.jpg"
+    ]
+  },
+  {
+    "id": "4",
+    "idWoodoo": "701704",
+    "name": "Квартира з терасою",
+    "image": "lux.jpg",
+    "square": "60 м²",
+    "numRooms": 2,
+    "beds": 3,
+    "guests": 5,
+    "pricePerDay": 2000,
+    "pricePerMonth": 35000,
+    "category": "Комфорт",
+    "amenities": [
+      "Велика кухня",
+      "Духовка",
+      "Wi-Fi",
+      "Пральна машина",
+      "Балкон",
+      "Smart TV"
+    ],
+    "imgUrls": [
+      "https://wubook.net/wbkd/wbkimgs/room/1079083.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079084.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079085.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079086.jpg",
+      "https://wubook.net/wbkd/wbkimgs/room/1079087.jpg"
+    ]
+  }
+]
