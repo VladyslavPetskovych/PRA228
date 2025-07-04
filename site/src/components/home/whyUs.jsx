@@ -8,14 +8,16 @@ import {
 function WhyUs() {
   return (
     <section className="py-16 font-roboto bg-white text-center">
-      <h2 className=" lg:text-5xl font-bold mb-4">Чому обирають саме нас?</h2>
-      <p className="text-gray-600 mb-12 max-w-xl mx-auto">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+        Чому обирають саме нас?
+      </h2>
+      <p className="text-gray-600 mb-12 max-w-xl mx-auto px-4">
         Ми створюємо простір для комфортного життя.
       </p>
 
       <div className="flex flex-col md:flex-row justify-center gap-8 px-4">
         {/* Item 1 */}
-        <div className="flex flex-col items-center max-w-xs hover:scale-105 transition-transform">
+        <div className="flex flex-col items-center w-full sm:w-80 mx-auto hover:scale-105 transition-transform text-center">
           <CalendarDaysIcon className="w-12 h-12 mb-4 text-yellow-600" />
           <h3 className="text-xl font-bold mb-2">Подобова оренда житла</h3>
           <p className="text-gray-600">
@@ -24,7 +26,7 @@ function WhyUs() {
         </div>
 
         {/* Item 2 */}
-        <div className="flex flex-col items-center max-w-xs hover:scale-105 transition-transform">
+        <div className="flex flex-col items-center w-full sm:w-80 mx-auto hover:scale-105 transition-transform text-center">
           <KeyIcon className="w-12 h-12 mb-4 text-yellow-600" />
           <h3 className="text-xl font-bold mb-2">Довгострокова оренда житла</h3>
           <p className="text-gray-600">
@@ -34,7 +36,7 @@ function WhyUs() {
         </div>
 
         {/* Item 3 */}
-        <div className="flex flex-col items-center max-w-xs hover:scale-105 transition-transform">
+        <div className="flex flex-col items-center w-full sm:w-80 mx-auto hover:scale-105 transition-transform text-center">
           <TruckIcon className="w-12 h-12 mb-4 text-yellow-600" />
           <h3 className="text-xl font-bold mb-2">Власна парковка</h3>
           <p className="text-gray-600">

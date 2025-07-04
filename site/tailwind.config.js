@@ -4,16 +4,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: "#1A1A1A",
-        accent: "#E7C873",
-        grayText: "#969696",
-        lightBorder: "#FFFFFF1A",
+        // Брендові кольори
+        brand: {
+          black: "#1C1C1C",
+          orange: "#B86F21",
+          beige: "#D7C7A5",
+          blue: "#9FB7BD",
+          white: "#FFFFFF",
+        },
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        playfair: ['"Playfair Display"', "serif"],
-        robotoCondensed: ['"Roboto Condensed"', "sans-serif"],
-        roboto: ["Roboto", "sans-serif"],
+        golos: ["Golos Text", "sans-serif"],
+        moderustic: ["Moderustic", "sans-serif"],
       },
     },
   },

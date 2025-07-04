@@ -1,9 +1,17 @@
+import { Link } from "react-router-dom";
+
 function Navigation() {
   return (
     <nav className="hidden md:flex flex-wrap items-center gap-x-6 font-bold text-base">
-      <span>Головна</span>
-      <span>Квартири</span>
-      <span>Контакти</span>
+      <Link to="/" className="hover:text-brand-orange transition">
+        Головна
+      </Link>
+      <Link to="/apartments" className="hover:text-brand-orange transition">
+        Квартири
+      </Link>
+      <Link to="/contacts" className="hover:text-brand-orange transition">
+        Контакти
+      </Link>
     </nav>
   );
 }

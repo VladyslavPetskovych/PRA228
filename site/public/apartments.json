@@ -1,0 +1,107 @@
+[
+  {
+    "id": "0",
+    "idWoodoo": "apt001",
+    "name": "Квартира з балконом",
+    "image": "apt.jpg",
+    "square": "50 м²",
+    "numRooms": 2,
+    "beds": 2,
+    "guests": 4,
+    "pricePerDay": 1700,
+    "pricePerMonth": 30000,
+    "category": "Апартаменти",
+    "amenities": [
+      "Кондиціонер",
+      "Безкоштовний Wi-Fi",
+      "Кухня",
+      "Посудомийна машина",
+      "Телевізор з плоским екраном",
+      "Пральна машина",
+      "Вид на місто"
+    ]
+  },
+  {
+    "id": "1",
+    "idWoodoo": "apt002",
+    "name": "Квартира з балконом Люкс",
+    "image": "lux.jpg",
+    "square": "50 м²",
+    "numRooms": 2,
+    "beds": 2,
+    "guests": 4,
+    "pricePerDay": 1900,
+    "pricePerMonth": 32000,
+    "category": "Люкс",
+    "amenities": [
+      "Кондиціонер",
+      "Smart TV",
+      "Кухня",
+      "Посудомийка",
+      "Балкон",
+      "Пральна машина"
+    ]
+  },
+  {
+    "id": "2",
+    "idWoodoo": "apt003",
+    "name": "Квартира - Смарт Люкс",
+    "image": "smart.jpg",
+    "square": "35 м²",
+    "numRooms": 1,
+    "beds": 1,
+    "guests": 2,
+    "pricePerDay": 1200,
+    "pricePerMonth": 25000,
+    "category": "Смарт",
+    "amenities": [
+      "Wi-Fi",
+      "Кухонний блок",
+      "Кондиціонер",
+      "Телевізор",
+      "Душова кабіна"
+    ]
+  },
+  {
+    "id": "3",
+    "idWoodoo": "apt004",
+    "name": "Двокімнатна квартира",
+    "image": "two.jpg",
+    "square": "60 м²",
+    "numRooms": 2,
+    "beds": 3,
+    "guests": 5,
+    "pricePerDay": 2000,
+    "pricePerMonth": 35000,
+    "category": "Комфорт",
+    "amenities": [
+      "Велика кухня",
+      "Духовка",
+      "Wi-Fi",
+      "Пральна машина",
+      "Балкон",
+      "Smart TV"
+    ]
+  },
+  {
+    "id": "4",
+    "idWoodoo": "apt005",
+    "name": "Rвартира",
+    "image": "two.jpg",
+    "square": "60 м²",
+    "numRooms": 2,
+    "beds": 3,
+    "guests": 5,
+    "pricePerDay": 2000,
+    "pricePerMonth": 35000,
+    "category": "Комфорт",
+    "amenities": [
+      "Велика кухня",
+      "Духовка",
+      "Wi-Fi",
+      "Пральна машина",
+      "Балкон",
+      "Smart TV"
+    ]
+  }
+]

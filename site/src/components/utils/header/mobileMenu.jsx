@@ -1,16 +1,20 @@
-function MobileMenu({ toggleMenu }) {
+import React from "react";
+import { Link } from "react-router-dom";
+
+function MobileMenu({ isOpen, toggleMenu }) {
   return (
-    <div className="md:hidden flex flex-col items-center gap-6 bg-black bg-opacity-90 px-6 pb-6 text-white text-lg font-semibold">
-      <span onClick={toggleMenu}>Головна</span>
-      <span onClick={toggleMenu}>Квартири</span>
-      <span onClick={toggleMenu}>Контакти</span>
-      <span className="mt-4 font-bold">+380685637315</span>
-      <button
-        onClick={toggleMenu}
-        className="border border-white rounded-full px-6 py-2 text-sm font-bold hover:bg-white hover:text-black transition"
-      >
-        Забронювати
-      </button>
+    <div
+      className={`fixed inset-0 z-40 bg-brand-black/95 text-brand-beige flex flex-col items-center justify-center transform transition-transform duration-500 ease-in-out ${
+        isOpen ? "translate-y-0" : "translate-y-full"
+      }`}
+    >
+      <nav className="flex flex-col gap-8 text-2xl font-semibold">
+        <button onClick={toggleMenu}>Про нас</button>
+        <Link to="/book" onClick={toggleMenu}>
+          Забронювати
+        </Link>
+        <button onClick={toggleMenu}>Контакти</button>
+      </nav>
     </div>
   );
 }

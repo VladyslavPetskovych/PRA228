@@ -1,31 +1,64 @@
-import React from "react";
-import bgImage from "./../../assets/temp/hero.jpg";
-import ActionButton from "../utils/buttons/actionButton";
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
+import SliderItem from "./heroSlider/sliderItem";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // або інші іконки
 
 function Hero() {
-  return (
-    <div>
-      <section
-        className="relative bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${bgImage})` }}
-      >
-        <div className="absolute inset-0 bg-black/40 z-0" /> {/* затемнення */}
-        <div className="pt-64 pb-40 px-16 text-center text-white relative z-10">
-          <div className="text-sm tracking-wide mb-4">
-            4 Спальні місця · 1 Ванна · 50 м²
-          </div>
-          <h1 className="text-5xl font-bold mb-4">
-            Квартири подобово
-            <br />
-            Prime Yard
-          </h1>
-          <div className="text-lg font-bold mb-8">
-            $700 <span className="text-sm font-normal"> в місяць</span>
-          </div>
+  const [apartments, setApartments] = useState([]);
 
-          <ActionButton text={"Дізнатись більше"} />
-        </div>
-      </section>
+  useEffect(() => {
+    fetch("/apartments.json")
+      .then((res) => res.json())
+      .then((data) => setApartments(data))
+      .catch((err) => console.error("Помилка при завантаженні:", err));
+  }, []);
+
+  // Кастомні стрілки
+  const PrevArrow = ({ onClick }) => (
+    <button
+      onClick={onClick}
+      className="absolute left-4 top-1/2 z-20 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black"
+    >
+      <FaChevronLeft />
+    </button>
+  );
+
+  const NextArrow = ({ onClick }) => (
+    <button
+      onClick={onClick}
+      className="absolute right-4 top-1/2 z-20 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black"
+    >
+      <FaChevronRight />
+    </button>
+  );
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    autoplay: false, // ❌ авто-відтворення вимкнено
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
+  };
+
+  return (
+    <div className="relative">
+      <Slider {...settings}>
+        {apartments.map((apt) => (
+          <SliderItem
+            key={apt.id}
+            image={`/hero/${apt.image}`}
+            title={apt.name}
+            price={`₴${apt.pricePerMonth}`}
+            details={`${apt.guests} гостей · ${apt.beds} ліжка · ${apt.square}`}
+          />
+        ))}
+      </Slider>
     </div>
   );
 }
