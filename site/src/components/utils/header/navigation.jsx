@@ -6,10 +6,10 @@ function Navigation() {
       <Link to="/" className="hover:text-brand-orange transition">
         Головна
       </Link>
-      <Link to="/apartments" className="hover:text-brand-orange transition">
+      <Link to="/" className="hover:text-brand-orange transition">
         Квартири
       </Link>
-      <Link to="/contacts" className="hover:text-brand-orange transition">
+      <Link to="/" className="hover:text-brand-orange transition">
         Контакти
       </Link>
     </nav>

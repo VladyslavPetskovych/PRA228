@@ -86,8 +86,8 @@
   {
     "id": "4",
     "idWoodoo": "apt005",
-    "name": "Rвартира",
-    "image": "two.jpg",
+    "name": "Квартира з терасою",
+    "image": "lux.jpg",
     "square": "60 м²",
     "numRooms": 2,
     "beds": 3,
