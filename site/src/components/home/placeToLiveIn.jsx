@@ -5,7 +5,7 @@ import dvirImg from "../../assets/AvalonYard/dvir.webp";
 function PlaceToLiveIn() {
   return (
     <section
-      className="relative flex items-center justify-center h-screen bg-cover bg-center text-white"
+      className="relative font-golos flex items-center justify-center h-screen bg-cover bg-center text-white"
       style={{
         backgroundImage: `url(${dvirImg})`,
       }}

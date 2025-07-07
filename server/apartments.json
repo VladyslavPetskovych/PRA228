@@ -40,7 +40,7 @@
   {
     "id": "1",
     "idWoodoo": "700257",
-    "name": "Квартира з балконом Люкс",
+    "name": "Квартира люкс з балконом ",
     "image": "lux.jpg",
     "square": "50 м²",
     "numRooms": 2,
@@ -64,7 +64,7 @@
   {
     "id": "2",
     "idWoodoo": "700259",
-    "name": "Квартира - Смарт Люкс",
+    "name": "Квартира смарт люкс",
     "image": "smart.jpg",
     "square": "35 м²",
     "numRooms": 1,
@@ -125,7 +125,7 @@
     "idWoodoo": "701704",
     "name": "Квартира з терасою",
     "image": "lux.jpg",
-    "square": "60 м²",
+    "square": "70 м²",
     "numRooms": 2,
     "beds": 3,
     "guests": 5,
