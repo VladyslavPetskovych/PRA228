@@ -40,7 +40,7 @@ function Book() {
     <div
       className="py-24 z-50 overflow-hidden bg-white"
       style={{
-        minHeight: "60vh",
+        minHeight: "90vh",
       }}
     >
       <div
