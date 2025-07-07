@@ -10,7 +10,7 @@ function MobileMenu({ isOpen, toggleMenu }) {
     >
       <nav className="flex flex-col gap-8 text-2xl font-semibold">
         <button onClick={toggleMenu}>Про нас</button>
-        <Link to="/" onClick={toggleMenu}>
+        <Link to="/book" onClick={toggleMenu}>
           Забронювати
         </Link>
         <button onClick={toggleMenu}>Контакти</button>

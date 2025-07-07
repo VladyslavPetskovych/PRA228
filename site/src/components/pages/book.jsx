@@ -1,39 +1,58 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 function Book() {
   useEffect(() => {
-    // Додаємо скрипт WuBook
     const script = document.createElement("script");
     script.src = "https://wubook.net/js/wblib.jgz";
     script.async = true;
+    document.body.appendChild(script);
+
     script.onload = () => {
-      // Коли скрипт завантажиться, ініціалізуємо WuBook
       const WuBook = new window._WuBook(1749140045);
       const wbparams = {
-        width: 840,
+        width: 100,
         height: "auto",
         lang: "",
         layout: "",
         mobile: 0,
-        width_unit: "px",
-        mheight: 640,
+        width_unit: "%",
+        mheight: 1000,
       };
       WuBook.design_iframe("_baror_", wbparams);
+
+      // Через 1 секунду після вставки iframe задаємо висоту напряму
+
+      const iframe = document.querySelector("#_baror_ iframe");
+      if (iframe) {
+        iframe.style.width = "100%";
+
+        iframe.style.height = "100vh";
+        iframe.style.display = "block";
+      }
     };
 
-    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
   return (
-    <div className="py-24 text-center px-4">
-      <h1 className="text-4xl font-bold mb-4">Забронювати житло</h1>
-      <p className="text-gray-600 max-w-xl mx-auto mb-8">
-        Використовуйте форму нижче для онлайн-бронювання ваших апартаментів.
-      </p>
+    <div
+      className="py-24 z-50 overflow-hidden bg-white"
+      style={{
+        minHeight: "60vh",
+      }}
+    >
+      <div
+        id="_baror_"
+        style={{
+          overflow: "hidden",
 
-      <div id="_baror_">
+          width: "100%",
+        }}
+      >
         <a
-          href="https://wubook.net/page/WooDoo-Booking-Engine-35.html"
+          href="https://wubook.net/"
           style={{
             display: "block",
             marginTop: "5px",
