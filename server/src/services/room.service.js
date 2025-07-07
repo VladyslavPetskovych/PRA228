@@ -34,7 +34,13 @@ class RoomService {
             const raw = fs.readFileSync(filePath, {encoding: "utf8", flag: "r"});
             const data = JSON.parse(raw);
 
-            return data.find(room => room.idWoodoo === id);
+            const room = data.find(room => room.idWoodoo === id);
+
+            if (!room) {
+                throw new ApiError("Room not found", 404)
+            }
+
+            return room;
         } catch (e) {
             throw new ApiError(e.message, e.status)
         }
