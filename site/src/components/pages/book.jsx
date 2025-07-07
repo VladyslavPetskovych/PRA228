@@ -16,7 +16,7 @@ function Book() {
         layout: "",
         mobile: 0,
         width_unit: "%",
-        mheight: 1000,
+        mheight: 1300,
       };
       WuBook.design_iframe("_baror_", wbparams);
 
