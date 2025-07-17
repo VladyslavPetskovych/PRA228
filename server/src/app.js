@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const {roomRouter} = require("./routers");
+const {cronRunner} = require("./crons");
 
 const app = express();
 
@@ -31,5 +32,6 @@ app.use((err, req, res, next) => {
 const PORT = 3000;
 
 app.listen(PORT, async () => {
+    cronRunner()
     console.log(`Server has started on PORT ${PORT}`)
 })
