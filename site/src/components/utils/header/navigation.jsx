@@ -9,6 +9,12 @@ function Navigation() {
       <Link to="/" className="hover:text-brand-orange transition">
         Квартири
       </Link>
+            <Link to="/" className="hover:text-brand-orange transition">
+        Короткострокова оренда
+      </Link>
+            <Link to="/" className="hover:text-brand-orange transition">
+        Довгострокова оренда
+      </Link>
       <Link to="/book" className="hover:text-brand-orange transition">
         Забронювати
       </Link>

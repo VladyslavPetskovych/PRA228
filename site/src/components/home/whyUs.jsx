@@ -19,9 +19,9 @@ function WhyUs() {
         {/* Item 1 */}
         <div className="flex flex-col items-center w-full sm:w-80 mx-auto hover:scale-105 transition-transform text-center">
           <CalendarDaysIcon className="w-12 h-12 mb-4 text-yellow-600" />
-          <h3 className="text-xl font-bold mb-2">Подобова оренда житла</h3>
+          <h3 className="text-xl font-bold mb-2">Короткострокова оренда житла</h3>
           <p className="text-gray-600">
-            Пропонуємо затишне житло, щоб провести свій вікенд з комфортом.
+            Пропонуємо затишне житло, щоб провести свій час з комфортом.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ function WhyUs() {
         {/* Item 3 */}
         <div className="flex flex-col items-center w-full sm:w-80 mx-auto hover:scale-105 transition-transform text-center">
           <TruckIcon className="w-12 h-12 mb-4 text-yellow-600" />
-          <h3 className="text-xl font-bold mb-2">Власна парковка</h3>
+          <h3 className="text-xl font-bold mb-2">Парковка</h3>
           <p className="text-gray-600">
             Вам не потрібно шукати парковку, зручно і безпечно залишайте машину.
           </p>
