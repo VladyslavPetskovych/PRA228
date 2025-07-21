@@ -12,7 +12,7 @@ function Footer() {
             <span className="text-xl font-semibold">Prime Yard</span>
           </div>
           <p className="text-sm opacity-70">
-            Стильні апартаменти для вашого комфортного відпочинку у Львові.
+            Стильні квартири для вашого комфортного відпочинку у Львові.
           </p>
         </div>
 
