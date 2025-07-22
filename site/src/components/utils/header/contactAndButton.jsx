@@ -1,35 +1,39 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function ContactAndButton() {
+function ContactAndButton({ hideButtons = false, className = "" }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("+380685637315").then(() => {
+    navigator.clipboard.writeText("+380777711400").then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
   };
 
+  if (hideButtons) return null;
+
   return (
-    <div className="hidden md:flex flex-col items-center gap-2 px-2 relative">
+    <div
+      className={`flex flex-col items-center gap-4 px-2 relative ${className}`}
+    >
       <button
         onClick={handleCopy}
         title="Натисніть, щоб скопіювати"
-        className="font-bold whitespace-nowrap text-center cursor-pointer hover:underline"
+        className="cursor-pointer font-bold whitespace-nowrap text-center hover:underline"
       >
-        +380685637315
+        +380777711400
       </button>
 
       <Link
-        to="/"
+        to="/book"
         className="border border-white rounded-full px-6 py-2 text-sm font-bold hover:bg-white hover:text-black transition"
       >
         Забронювати
       </Link>
 
       {copied && (
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-full bg-neutral-800 text-white text-xs font-medium px-3 py-1 rounded shadow-lg">
+        <div className="absolute left-1/2 -top-6 -translate-x-1/2 bg-neutral-800 text-white text-xs font-medium px-3 py-1 rounded shadow-lg">
           Скопійовано!
         </div>
       )}

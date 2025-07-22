@@ -15,7 +15,7 @@ function Header() {
         <div className="flex flex-wrap md:flex-nowrap items-center justify-between px-6 md:px-16 py-4 md:py-4 gap-y-4">
           <Logo />
           <Navigation />
-          <ContactAndButton />
+          <ContactAndButton className="hidden md:flex" />
 
           <button
             className="md:hidden ml-auto flex flex-col justify-center items-center w-10 h-10 relative group"

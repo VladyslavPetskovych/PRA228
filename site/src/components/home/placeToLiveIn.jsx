@@ -1,6 +1,6 @@
 import React from "react";
 import ActionButton from "../utils/buttons/actionButton";
-import dvirImg from "../../assets/AvalonYard/dvir.webp";
+import dvirImg from "../../assets/AvalonYard/dvir.jpg";
 
 function PlaceToLiveIn() {
   return (
@@ -17,8 +17,7 @@ function PlaceToLiveIn() {
           Відкрийте для себе простір, де хочеться жити
         </h1>
         <p className="text-lg md:text-xl  mb-8">
-          Prime Yard — це сучасний житловий комплекс із закритим двором,
-          зеленими зонами для відпочинку та інноваційною архітектурою у Львові.
+          Prime Yard — це сучасні квартири у Львові.
           Власний простір для життя, роботи та натхнення.
         </p>
         <ActionButton text={"Спробуйте вже сьогодні"} />
