@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended: true}));
 app.get(
     "/",
     (req, res, next) => {
-        return res.json("PrimeYardApartments API")
+        return res.json("PrimeRestApartments API")
     }
 )
 
