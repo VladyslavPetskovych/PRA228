@@ -16,6 +16,7 @@ function SliderItem({ image, title, price, details }) {
         </div> */}
         <ActionButton text={"Дізнатись більше"} />
       </div>
+      
     </section>
   );
 }
