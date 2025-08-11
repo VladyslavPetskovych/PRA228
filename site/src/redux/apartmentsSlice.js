@@ -6,7 +6,7 @@ export const fetchApartments = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const res = await fetch(
-        "https://primeyardapartments.com/api/rooms"
+        "https://primerestapartments.com/api/rooms"
       );
       if (!res.ok) {
         throw new Error("Помилка завантаження даних");
