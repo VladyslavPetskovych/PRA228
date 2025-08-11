@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://primeyardapartments.com/sitemap.xml
+Sitemap: https://primeyrestapartments.com/sitemap.xml

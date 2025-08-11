@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchApartments } from "../../redux/apartmentsSlice";
 import Slider from "react-slick";
@@ -6,11 +6,12 @@ import SliderItem from "./heroSlider/sliderItem";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Placeholder from "../../assets/homePage/placeholder.jpg"; // переконайся, що шлях вірний
 
 function Hero() {
   const dispatch = useDispatch();
   const {
-    items: apartments,
+    items: apartments = [],
     loading,
     error,
   } = useSelector((state) => state.apartments);
@@ -22,7 +23,8 @@ function Hero() {
   const PrevArrow = ({ onClick }) => (
     <button
       onClick={onClick}
-      className="absolute left-4 top-1/2 z-20 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black"
+      className="absolute left-4 top-1/2 z-20 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black"
+      aria-label="Попередній слайд"
     >
       <FaChevronLeft />
     </button>
@@ -31,7 +33,8 @@ function Hero() {
   const NextArrow = ({ onClick }) => (
     <button
       onClick={onClick}
-      className="absolute right-4 top-1/2 z-20 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black"
+      className="absolute right-4 top-1/2 z-20 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black"
+      aria-label="Наступний слайд"
     >
       <FaChevronRight />
     </button>
@@ -49,36 +52,78 @@ function Hero() {
     nextArrow: <NextArrow />,
   };
 
+  // Плейсхолдерні картки, якщо немає даних з API
+  const placeholderSlides = useMemo(
+    () => [
+      {
+        id: "ph-1",
+        image: Placeholder,
+        title: "Преміальні квартири",
+        price: "₴—",
+        details: "— гостей · — ліжок · — м²",
+      },
+      {
+        id: "ph-2",
+        image: Placeholder,
+        title: "Стильний інтерʼєр",
+        price: "₴—",
+        details: "— гостей · — ліжок · — м²",
+      },
+      {
+        id: "ph-3",
+        image: Placeholder,
+        title: "Скоро будуть доступні",
+        price: "₴—",
+        details: "— гостей · — ліжок · — м²",
+      },
+    ],
+    []
+  );
+
+  const hasData = apartments && apartments.length > 0;
+
+  // Селектор зображення з фолбеком на плейсхолдер
+  const getImage = (apt) =>
+    (apt?.imgUrls && apt.imgUrls.length > 0 && apt.imgUrls[0]) || Placeholder;
+
+  // Лоадер (короткий)
   if (loading) {
     return (
-      <div className="text-center py-12">
-        <p>Завантаження...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="text-center py-12 text-red-500">
-        <p>{error}</p>
+      <div className="relative">
+        <div className="aspect-[16/9] w-full animate-pulse bg-gray-200 rounded-xl" />
       </div>
     );
   }
 
   return (
     <div className="relative">
+      {/* Якщо була помилка — показуємо ненав’язливий банер, але слайдер з плейсхолдерами все одно працює */}
+      {error && (
+        <div className="mx-auto mb-4 max-w-5xl rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          Не вдалося завантажити квартири. Показуємо приклади.
+        </div>
+      )}
+
       <Slider {...settings}>
-        {apartments.map((apt) => (
+        {(hasData ? apartments : placeholderSlides).map((apt) => (
           <SliderItem
-            key={apt.id}
-            image={
-              apt.imgUrls && apt.imgUrls.length > 0
-                ? apt.imgUrls[0]
-                : "/placeholder.jpg" // якщо немає фото
+            key={apt.id || apt._id || `ph-${apt.title}`}
+            image={hasData ? getImage(apt) : apt.image}
+            title={hasData ? apt.name : apt.title}
+            price={
+              hasData
+                ? apt.pricePerMonth
+                  ? `₴${apt.pricePerMonth}`
+                  : "₴—"
+                : apt.price
             }
-            title={apt.name}
-            price={`₴${apt.pricePerMonth}`}
-            details={`${apt.guests} гостей · ${apt.beds} ліжка · ${apt.square}`}
+            details={
+              hasData
+                ? `${apt.guests ?? "—"} гостей · ${apt.beds ?? "—"} ліжка · ${
+                    apt.square ?? "—"
+                  }`
+                : apt.details
+            }
           />
         ))}
       </Slider>
