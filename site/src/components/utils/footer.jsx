@@ -41,12 +41,12 @@ function Footer() {
           <a href="tel:+380685637315" className="hover:text-white transition">
             +380777711400
           </a>
-          <a
+          {/* <a
             href="mailto:info@primeyard.com"
             className="hover:text-white transition"
           >
             primeyardapartments@gmail.com
-          </a>
+          </a> */}
         </div>
       </div>
 
