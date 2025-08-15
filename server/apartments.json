@@ -57,9 +57,7 @@
       "Балкон",
       "Пральна машина"
     ],
-    "imgUrls": [
-      "https://wubook.net/wbkd/wbkimgs/room/1079114.jpg"
-    ]
+    "imgUrls": ["https://wubook.net/wbkd/wbkimgs/room/1079114.jpg"]
   },
   {
     "id": "2",
@@ -104,6 +102,8 @@
     "beds": 3,
     "guests": 5,
     "pricePerDay": 2000,
+    "pricePerDay1": 2000,
+    "pricePerDay2": 2000,
     "pricePerMonth": 41000,
     "category": "Комфорт",
     "amenities": [

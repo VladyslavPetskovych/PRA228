@@ -20,6 +20,12 @@ function Hero() {
     dispatch(fetchApartments());
   }, [dispatch]);
 
+  useEffect(() => {
+    console.log("Отримані квартири з Redux:", apartments);
+    console.log("Статус завантаження:", loading);
+    console.log("Помилка:", error);
+  }, [apartments, loading, error]);
+
   const PrevArrow = ({ onClick }) => (
     <button
       onClick={onClick}
