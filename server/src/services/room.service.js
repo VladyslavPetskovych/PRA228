@@ -10,14 +10,28 @@ class RoomService {
     async findAll() {
         try {
             const filePath = path.join(__dirname, "../../apartments.json");
+            const imagesPath = path.join(__dirname, "../../images.json");
 
             if (!fs.existsSync(filePath)) {
                 throw new ApiError("JSON file with apartments not found", 500);
             }
+            if (!fs.existsSync(imagesPath)) {
+                throw new ApiError("JSON file with images not found", 500);
+            }
 
-            const raw = fs.readFileSync(filePath, {encoding: "utf8", flag: "r"});
+            const rawApartments = fs.readFileSync(filePath, {encoding: "utf8", flag: "r"});
+            const apartments = JSON.parse(rawApartments);
 
-            return JSON.parse(raw)
+            const rawImages = fs.readFileSync(imagesPath, {encoding: "utf8", flag: "r"});
+            const images = JSON.parse(rawImages);
+
+            return apartments.map(apartment => {
+                const roomImages = images.find(img => img.idWoodoo === apartment.idWoodoo);
+                return {
+                    ...apartment,
+                    imgUrls: roomImages ? roomImages.imgUrls : []
+                };
+            })
         } catch (e) {
             throw new ApiError(e.message, e.status)
         }
@@ -26,21 +40,32 @@ class RoomService {
     async findById(id) {
         try {
             const filePath = path.join(__dirname, "../../apartments.json");
+            const imagesPath = path.join(__dirname, "../../images.json");
 
             if (!fs.existsSync(filePath)) {
                 throw new ApiError("JSON file with apartments not found", 500);
             }
+            if (!fs.existsSync(imagesPath)) {
+                throw new ApiError("JSON file with images not found", 500);
+            }
 
-            const raw = fs.readFileSync(filePath, {encoding: "utf8", flag: "r"});
-            const data = JSON.parse(raw);
+            const rawApartments = fs.readFileSync(filePath, {encoding: "utf8", flag: "r"});
+            const apartments = JSON.parse(rawApartments);
 
-            const room = data.find(room => room.idWoodoo === id);
+            const rawImages = fs.readFileSync(imagesPath, {encoding: "utf8", flag: "r"});
+            const images = JSON.parse(rawImages);
 
+            const room = apartments.find(room => room.idWoodoo === id);
             if (!room) {
                 throw new ApiError("Room not found", 404)
             }
 
-            return room;
+            const roomImages = images.find(room => room.idWoodoo === id);
+
+            return {
+                ...room,
+                imgUrls: roomImages ? roomImages.imgUrls : []
+            };
         } catch (e) {
             throw new ApiError(e.message, e.status)
         }
@@ -49,6 +74,7 @@ class RoomService {
     async updateImagesFromWubook() {
         try {
             const filePath = path.join(__dirname, "../../apartments.json");
+            const imagesPath = path.join(__dirname, "../../images.json");
 
             if (!fs.existsSync(filePath)) {
                 throw new ApiError("JSON file with apartments not found", 500);
@@ -56,6 +82,8 @@ class RoomService {
 
             const raw = fs.readFileSync(filePath, {encoding: "utf8", flag: "r"});
             const rooms = JSON.parse(raw);
+
+            const imagesData = [];
 
             await Promise.all(
                 rooms.map(async (room) => {
@@ -73,11 +101,15 @@ class RoomService {
                     const imgRes = await wubookService.post("", xmlParserWubook.parseObjToXml(imgBody));
                     const {data: roomImages = []} = await xmlParserWubook.parseXmlToObj(imgRes.data);
 
-                    room.imgUrls = roomImages.map(image => image?.image_link)
+                    imagesData.push({
+                        id: room.id,
+                        idWoodoo: room.idWoodoo,
+                        imgUrls: roomImages.map(image => image?.image_link),
+                    });
                 })
             )
 
-            fs.writeFileSync(path.join(__dirname, "../../apartments.json"), JSON.stringify(rooms, null, 2))
+            fs.writeFileSync(imagesPath, JSON.stringify(imagesData, null, 2))
         } catch (e) {
             throw new ApiError(e.message, e.status)
         }
