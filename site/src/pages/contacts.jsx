@@ -1,6 +1,6 @@
 import React from "react";
 import apartmentImg from "../assets/homePage/placeholder.jpg"; // ✅ правильний імпорт
-
+import { Link } from "react-router-dom";
 // Brand tokens
 const brand = {
   terracotta: "#C77022",
@@ -21,7 +21,7 @@ const data = {
   address: "вул. Замарстинівська, 76Б, Львів",
   mapsHref:
     "https://www.google.com/maps?q=%D0%92%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%97%D0%B0%D0%BC%D0%B0%D1%80%D1%81%D1%82%D0%B8%D0%BD%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0,+76%D0%91,+%D0%9B%D1%8C%D0%B2%D1%96%D0%B2",
-  working: [{ d: "Пн–Нд"}],
+  working: [{ d: "Пн–Нд" }],
 };
 
 const Card = ({ title, children }) => (
@@ -89,11 +89,19 @@ export default function ContactsPage() {
             </div>
           </Card>
 
-          <Card title="Email">
-            <a href={`mailto:${data.email}`} className="underline">
-              {data.email}
+         
+          <Card title="Telegram">
+            <a
+              href="https://t.me/prime_rest_apartments" // встав свій юзернейм або канал
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+              style={{ color: brand.terracotta }}
+            >
+              @prime_rest_apartments
             </a>
           </Card>
+
           <Card title="Графік">
             <ul className="space-y-1">
               {data.working.map((w) => (
@@ -148,12 +156,12 @@ export default function ContactsPage() {
               >
                 Зателефонувати
               </a>
-              <a
-                href="/book"
-                className="inline-flex w-full items-center justify-center rounded-xl border px-4 py-2 text-sm sm:w-auto"
+              <Link
+                to="/book"
+                className="inline-block rounded-xl bg-brand-orange px-5 py-2.5 font-golos text-white shadow hover:opacity-95 active:scale-[0.99]"
               >
                 Забронювати
-              </a>
+              </Link>
             </div>
           </div>
         </div>

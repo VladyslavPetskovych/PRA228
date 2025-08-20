@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // запасна картинка
 const FALLBACK_IMG =
@@ -147,15 +148,15 @@ export default function ApartmentCard({ apartment }) {
               / ніч
             </span>
           </div>
-          <button
-            className="rounded-xl bg-brand-orange px-5 py-2.5 font-golos text-white shadow hover:opacity-95 active:scale-[0.99]"
+          <Link
+            to="/book"
+            className="inline-block rounded-xl bg-brand-orange px-5 py-2.5 font-golos text-white shadow hover:opacity-95 active:scale-[0.99]"
             onClick={() => {
-           
               console.log("Забронювати:", a.title);
             }}
           >
             Забронювати
-          </button>
+          </Link>
         </div>
       </div>
     </div>
