@@ -4,7 +4,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Брендові кольори
         brand: {
           black: "#1C1C1C",
           orange: "#B86F21",

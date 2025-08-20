@@ -6,12 +6,15 @@ function Navigation() {
       <Link to="/" className="hover:text-brand-orange transition">
         Головна
       </Link>
-      <Link to="/" className="hover:text-brand-orange transition">
+      {/* <Link to="/" className="hover:text-brand-orange transition">
         Квартири
-      </Link>
+      </Link> */}
 
       <div className="hidden lg:flex gap-x-6">
-        <Link to="/" className="hover:text-brand-orange transition">
+        <Link
+          to="/short-term-rent"
+          className="hover:text-brand-orange transition"
+        >
           Короткострокова оренда
         </Link>
         <Link to="/" className="hover:text-brand-orange transition">
@@ -19,7 +22,7 @@ function Navigation() {
         </Link>
       </div>
 
-      <Link to="/" className="hover:text-brand-orange transition">
+      <Link to="/contacts" className="hover:text-brand-orange transition">
         Контакти
       </Link>
     </nav>

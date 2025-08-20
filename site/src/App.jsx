@@ -2,10 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/utils/header/header";
 import Footer from "./components/utils/footer";
-import Home from "./components/pages/home";
-import Book from "./components/pages/book";
+import Home from "./pages/home";
+import Book from "./pages/book";
+import Contacts from "./pages/contacts";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import ShortTermRent from "./pages/shortTermRent";
 
 function App() {
   return (
@@ -16,7 +18,10 @@ function App() {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/short-term-rent" element={<ShortTermRent />} />
+              {/* <Route path="/long-term-rent" element={<shortTermRent />} /> */}
               <Route path="/book" element={<Book />} />
+              <Route path="/contacts" element={<Contacts />} />
             </Routes>
           </main>
           <Footer />

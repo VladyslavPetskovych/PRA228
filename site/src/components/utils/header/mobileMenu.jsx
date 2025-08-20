@@ -13,16 +13,16 @@ function MobileMenu({ isOpen, toggleMenu, hideButtons = false }) {
         <Link to="/" onClick={toggleMenu}>
           Головна
         </Link>
-        <Link to="/" onClick={toggleMenu}>
+        {/* <Link to="/" onClick={toggleMenu}>
           Квартири
-        </Link>
-        <Link to="/" onClick={toggleMenu}>
+        </Link> */}
+        <Link to="/short-term-rent" onClick={toggleMenu}>
           Короткострокова оренда
         </Link>
         <Link to="/" onClick={toggleMenu}>
           Довгострокова оренда
         </Link>
-        <Link to="/" onClick={toggleMenu}>
+        <Link to="/contacts" onClick={toggleMenu}>
           Контакти
         </Link>
       </nav>
