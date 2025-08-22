@@ -36,7 +36,7 @@ export default function TopBlock() {
     {
       icon: <KeyRound className="h-6 w-6 text-brand-orange" />,
       title: "Швидке заселення",
-      desc: "Мінімум документів. Заселення в день підписання договору.",
+      desc: "Заселення в день підписання договору.",
     },
     {
       icon: <Percent  className="h-6 w-6 text-brand-orange" />,
