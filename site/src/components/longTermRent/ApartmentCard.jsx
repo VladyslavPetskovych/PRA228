@@ -1,5 +1,4 @@
 import React, { useMemo } from "react";
-import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 // запасна картинка
@@ -26,55 +25,40 @@ const AmenityPill = ({ children }) => (
   </span>
 );
 
-// невеличка нормалізація даних з API
+// нормалізація даних з API
 function useNormalized(apartment) {
-  return React.useMemo(() => {
-    // 1) фото
-    const imgUrl =
-      apartment?.imgUrls?.[0] ||
-      apartment?.image || // локальний fallback
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop";
+  return useMemo(() => {
+    const imgUrl = apartment?.imgUrls?.[0] || apartment?.image || FALLBACK_IMG;
 
-    // 2) базові поля
     const title = apartment?.name || "Квартира";
     const type =
       apartment?.category ||
       (apartment?.numRooms > 1 ? `${apartment?.numRooms}-кімнатна` : "Студія");
 
-    // 3) площа (рядок типу "50 м²" → 50)
     const areaStr = apartment?.square || "";
     const area = Number(String(areaStr).match(/\d+(\.\d+)?/)?.[0] || 0) || 35;
 
-    // 4) ціна
-    const price =
-      Number(apartment?.pricePerDay || apartment?.pricePerMonth || 0) || 1200;
+    // ціна за місяць у доларах
+    const priceMonth = Number(apartment?.pricePerMonth || 0) || 600;
 
-    // 5) зручності/параметри
     const amenities = apartment?.amenities || [];
     const rooms = apartment?.numRooms ?? 1;
     const beds = apartment?.beds ?? undefined;
     const guests = apartment?.guests ?? undefined;
 
-    // 6) інше
-    const rating = 4.8; // якщо в тебе з’явиться поле — підставимо реальне
-    const reviewsCount = 24; // так само
-
     return {
       id: apartment?._id || apartment?.id || apartment?.idWoodoo,
       imgUrl,
       title,
-      address: apartment?.address || "", // якщо буде — відобразимо
-      rating,
-      reviewsCount,
+      address: apartment?.address || "",
       rooms,
       area,
-      price,
+      priceMonth,
       type,
-      available: true, // якщо матимеш флаг — підставимо apartment.available
+      available: true,
       amenities,
       guests,
       beds,
-      idWoodoo: apartment?.idWoodoo,
     };
   }, [apartment]);
 }
@@ -93,14 +77,14 @@ export default function ApartmentCard({ apartment }) {
           loading="lazy"
           onError={(e) => (e.currentTarget.src = FALLBACK_IMG)}
         />
+
         {/* бейджі */}
         <div className="pointer-events-none absolute left-3 top-3 flex gap-2">
           <Badge color="gold">{a.type}</Badge>
         </div>
 
         <div className="absolute right-3 top-3 flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-brand-black shadow">
-       
-          <span className="ml-2">🌙 Мін. 2 ночі</span>
+          <span className="ml-2">🌙 Мін. 1 місяць</span>
         </div>
       </div>
 
@@ -109,6 +93,7 @@ export default function ApartmentCard({ apartment }) {
         <h3 className="mb-1 line-clamp-2 font-moderustic text-xl font-extrabold text-brand-black">
           {a.title}
         </h3>
+
         <div className="mb-3 flex flex-wrap items-center gap-4 text-sm text-brand-black/80">
           <span>🛏 {a.rooms} кімн.</span>
           <span>▢ {a.area} м²</span>
@@ -116,17 +101,7 @@ export default function ApartmentCard({ apartment }) {
           {a.guests !== undefined && <span>👥 до {a.guests} гостей</span>}
         </div>
 
-        <p className="mb-3 line-clamp-2 text-sm text-brand-black/80">
-          {a.shortDesc}
-        </p>
-
-        {/* параметри */}
-        <div className="mb-3 flex flex-wrap items-center gap-4 text-sm text-brand-black/80">
-          <span>🛏 {a.rooms} кімн.</span>
-          <span>▢ {a.area} м²</span>
-        </div>
-
-        {/* зручності (перші 6) */}
+        {/* зручності */}
         {a.amenities?.length > 0 && (
           <div className="mb-5 flex flex-wrap gap-2">
             {a.amenities.slice(0, 6).map((am, i) => (
@@ -135,26 +110,24 @@ export default function ApartmentCard({ apartment }) {
           </div>
         )}
 
-        {/* низ */}
-        <div className="mt-auto flex items-center justify-between">
-          <div className="font-moderustic text-2xl font-extrabold text-brand-black">
-            <span className="text-base font-normal text-brand-black/70">
-              Від{" "}
-            </span>
-            ₴{Number(a.price).toLocaleString("uk-UA")}{" "}
-            <span className="text-base font-normal text-brand-black/70">
-              / ніч
-            </span>
+        <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <div className="font-moderustic text-xl font-extrabold text-brand-black">
+              ${Number(a.priceMonth).toLocaleString("en-US")}
+              <span className="ml-1 text-base font-normal text-brand-black/70">
+                / місяць
+              </span>
+            </div>
+            <div className="text-sm text-brand-black/70">
+              + Комунальні послуги
+            </div>
           </div>
-          <Link
-            to="/book"
-            className="inline-block rounded-xl bg-brand-orange px-5 py-2.5 font-golos text-white shadow hover:opacity-95 active:scale-[0.99]"
-            onClick={() => {
-              console.log("Забронювати:", a.title);
-            }}
+          <a
+            href="tel:+380777711400"
+            className="inline-block rounded-xl bg-brand-orange px-4 py-2 font-golos text-white shadow hover:opacity-95"
           >
-            Забронювати
-          </Link>
+            Зателефонувати
+          </a>
         </div>
       </div>
     </div>

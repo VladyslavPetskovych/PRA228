@@ -8,6 +8,7 @@ import Contacts from "./pages/contacts";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import ShortTermRent from "./pages/shortTermRent";
+import LongTermRent from "./pages/longTermRent";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/short-term-rent" element={<ShortTermRent />} />
-              {/* <Route path="/long-term-rent" element={<shortTermRent />} /> */}
+              <Route path="/long-term-rent" element={<LongTermRent />} />
               <Route path="/book" element={<Book />} />
               <Route path="/contacts" element={<Contacts />} />
             </Routes>

@@ -17,7 +17,7 @@ function Navigation() {
         >
           Короткострокова оренда
         </Link>
-        <Link to="/" className="hover:text-brand-orange transition">
+        <Link to="/long-term-rent" className="hover:text-brand-orange transition">
           Довгострокова оренда
         </Link>
       </div>

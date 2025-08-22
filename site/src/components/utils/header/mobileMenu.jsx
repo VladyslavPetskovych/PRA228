@@ -19,7 +19,7 @@ function MobileMenu({ isOpen, toggleMenu, hideButtons = false }) {
         <Link to="/short-term-rent" onClick={toggleMenu}>
           Короткострокова оренда
         </Link>
-        <Link to="/" onClick={toggleMenu}>
+        <Link to="/long-term-rent" onClick={toggleMenu}>
           Довгострокова оренда
         </Link>
         <Link to="/contacts" onClick={toggleMenu}>
