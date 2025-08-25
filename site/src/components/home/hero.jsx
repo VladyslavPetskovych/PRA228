@@ -53,6 +53,8 @@ function Hero() {
     autoplay: false,
     slidesToShow: 1,
     slidesToScroll: 1,
+    lazyLoad: "ondemand",
+    adaptiveHeight: false,
     arrows: true,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
@@ -102,16 +104,22 @@ function Hero() {
   }
 
   return (
-    <div className="relative">
-      {/* Якщо була помилка — показуємо ненав’язливий банер, але слайдер з плейсхолдерами все одно працює */}
+    <div
+      className="relative"
+      style={{ minHeight: "56.25vw", maxHeight: 620 }} // 16:9, але не вище 620px на мобі
+    >
+      {/* резерв під помилку */}
       {error && (
-        <div className="mx-auto mb-4 max-w-5xl rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+        <div className="mx-auto mb-2 max-w-5xl rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-700">
           Не вдалося завантажити квартири. Показуємо приклади.
         </div>
       )}
 
+      {/* резерв під крапки slick (щоб вони не з’являлись і не штовхали контент) */}
+      <div className="h-5" aria-hidden />
+
       <Slider {...settings}>
-        {(hasData ? apartments : placeholderSlides).map((apt) => (
+        {(hasData ? apartments : placeholderSlides).map((apt, idx) => (
           <SliderItem
             key={apt.id || apt._id || `ph-${apt.title}`}
             image={hasData ? getImage(apt) : apt.image}
@@ -130,6 +138,8 @@ function Hero() {
                   }`
                 : apt.details
             }
+            // нове:
+            priority={idx === 0} // перший слайд — головний (LCP)
           />
         ))}
       </Slider>
