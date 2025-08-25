@@ -2,22 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://primerestapartments.com/</loc>
-    <lastmod>2024-07-03</lastmod>
+    <lastmod>2024-08-25</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://primerestapartments.com/apartments</loc>
-    <lastmod>2025-08-03</lastmod>
+    <loc>https://primerestapartments.com/short-term-rent</loc>
+    <lastmod>2025-08-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+    <url>
+    <loc>https://primerestapartments.com/long-term-rent</loc>
+    <lastmod>2025-08-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://primerestapartments.com/book</loc>
-    <lastmod>2025-08-03</lastmod>
+    <lastmod>2025-08-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://primerestapartments.com/contacts</loc>
-    <lastmod>2025-08-03</lastmod>
+    <lastmod>2025-08-25</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>
