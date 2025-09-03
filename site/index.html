@@ -132,15 +132,7 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-KK882GCZM6"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "G-KK882GCZM6");
-    </script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -174,6 +166,15 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-KK882GCZM6");
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
