@@ -5,7 +5,7 @@ import ApartmentsGrid from "../components/shortTermRent/ApartmentsGrid";
 
 function ShortTermRent() {
   return (
-    <div className="">
+    <div className="bg-white">
       <TopBlock />
       <ApartmentsGrid />
       <DontFindApartment variant={2} />

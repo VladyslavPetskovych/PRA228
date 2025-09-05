@@ -32,7 +32,7 @@ export default function ApartmentsGrid() {
   }
 
   return (
-    <div className="mx-auto my-10 max-w-6xl px-4">
+    <div className="mx-auto my-10 max-w-6xl px-4 ">
       {loading && (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 6 }).map((_, i) => (

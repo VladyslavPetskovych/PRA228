@@ -25,40 +25,30 @@ const AmenityPill = ({ children }) => (
   </span>
 );
 
-// нормалізація даних з API
 function useNormalized(apartment) {
   return useMemo(() => {
     const imgUrl = apartment?.imgUrls?.[0] || apartment?.image || FALLBACK_IMG;
-
     const title = apartment?.name || "Квартира";
     const type =
       apartment?.category ||
       (apartment?.numRooms > 1 ? `${apartment?.numRooms}-кімнатна` : "Студія");
-
     const areaStr = apartment?.square || "";
     const area = Number(String(areaStr).match(/\d+(\.\d+)?/)?.[0] || 0) || 35;
-
-    // ціна за місяць у доларах
     const priceMonth = Number(apartment?.pricePerMonth || 0) || 600;
 
-    const amenities = apartment?.amenities || [];
-    const rooms = apartment?.numRooms ?? 1;
-    const beds = apartment?.beds ?? undefined;
-    const guests = apartment?.guests ?? undefined;
-
     return {
-      id: apartment?._id || apartment?.id || apartment?.idWoodoo,
+      idWoodoo: apartment?.idWoodoo || apartment?._id || apartment?.id, // для посилань
       imgUrl,
       title,
       address: apartment?.address || "",
-      rooms,
+      rooms: apartment?.numRooms ?? 1,
       area,
       priceMonth,
       type,
       available: true,
-      amenities,
-      guests,
-      beds,
+      amenities: apartment?.amenities || [],
+      guests: apartment?.guests ?? undefined,
+      beds: apartment?.beds ?? undefined,
     };
   }, [apartment]);
 }
@@ -110,7 +100,8 @@ export default function ApartmentCard({ apartment }) {
           </div>
         )}
 
-        <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-auto flex flex-col gap-3">
+          {/* Ціна зверху */}
           <div>
             <div className="font-moderustic text-xl font-extrabold text-brand-black">
               ${Number(a.priceMonth).toLocaleString("en-US")}
@@ -122,12 +113,22 @@ export default function ApartmentCard({ apartment }) {
               + Комунальні послуги
             </div>
           </div>
-          <a
-            href="tel:+380777711400"
-            className="inline-block rounded-xl bg-brand-orange px-4 py-2 font-golos text-white shadow hover:opacity-95"
-          >
-            Зателефонувати
-          </a>
+
+          {/* Кнопки знизу */}
+          <div className="flex flex-col sm:flex-row gap-2 w-full">
+            <a
+              href="tel:+380777711400"
+              className="flex-1 text-center rounded-xl bg-brand-orange px-4 py-2 font-golos text-white shadow hover:opacity-95"
+            >
+              Зателефонувати
+            </a>
+            <Link
+              to={`/short-term-rent/${a.idWoodoo}`}
+              className="flex-1 text-center rounded-xl border border-brand-orange px-4 py-2 font-golos text-brand-orange shadow hover:bg-brand-orange hover:text-white transition-colors"
+            >
+              Детальніше
+            </Link>
+          </div>
         </div>
       </div>
     </div>

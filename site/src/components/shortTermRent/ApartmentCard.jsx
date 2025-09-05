@@ -99,7 +99,6 @@ export default function ApartmentCard({ apartment }) {
         </div>
 
         <div className="absolute right-3 top-3 flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-brand-black shadow">
-       
           <span className="ml-2">🌙 Мін. 2 ночі</span>
         </div>
       </div>
@@ -135,8 +134,9 @@ export default function ApartmentCard({ apartment }) {
           </div>
         )}
 
-        {/* низ */}
-        <div className="mt-auto flex items-center justify-between">
+        {/* низ (оновлено) */}
+        <div className="mt-auto flex flex-col gap-3">
+          {/* ціна зверху */}
           <div className="font-moderustic text-2xl font-extrabold text-brand-black">
             <span className="text-base font-normal text-brand-black/70">
               Від{" "}
@@ -146,15 +146,23 @@ export default function ApartmentCard({ apartment }) {
               / ніч
             </span>
           </div>
-          <Link
-            to="/book"
-            className="inline-block rounded-xl bg-brand-orange px-5 py-2.5 font-golos text-white shadow hover:opacity-95 active:scale-[0.99]"
-            onClick={() => {
-              console.log("Забронювати:", a.title);
-            }}
-          >
-            Забронювати
-          </Link>
+
+          {/* дві кнопки знизу */}
+          <div className="flex flex-col sm:flex-row gap-2 w-full">
+            <Link
+              to={`/short-term-rent/${a.idWoodoo}`}
+              className="flex-1 text-center rounded-xl border border-brand-orange px-4 py-2 font-golos text-brand-orange shadow hover:bg-brand-orange hover:text-white transition-colors"
+            >
+              Детальніше
+            </Link>
+            <Link
+              to="/book"
+              className="flex-1 text-center rounded-xl bg-brand-orange px-4 py-2 font-golos text-white shadow hover:opacity-95 active:scale-[0.99]"
+              onClick={() => console.log("Забронювати:", a.title)}
+            >
+              Забронювати
+            </Link>
+          </div>
         </div>
       </div>
     </div>
