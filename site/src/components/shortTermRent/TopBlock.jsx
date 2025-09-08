@@ -21,7 +21,7 @@ export default function TopBlock({ onSearch }) {
       <div className="mx-auto w-full max-w-6xl px-4 pt-16 pb-10 sm:pt-20 sm:pb-14">
         {/* Заголовок */}
         <h1 className="text-center font-moderustic text-4xl font-extrabold leading-tight text-brand-black sm:text-5xl lg:text-6xl">
-          Ваш ідеальний дім <span className="text-brand-orange">у</span>
+          Ваш ідеальний дім у<span className="text-brand-orange"></span>
           <br />
           <span className="text-brand-orange">Львові</span>
         </h1>

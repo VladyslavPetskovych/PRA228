@@ -7,7 +7,19 @@ const brand = {
   charcoal: "#1E1E1E",
   beige: "#F5E9DB",
 };
-
+const buttonStyle = {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  borderRadius: "1rem", // округлі кути як у Tailwind rounded-xl
+  padding: "0.5rem 1rem", // px-4 py-2
+  fontSize: "0.875rem", // text-sm
+  fontWeight: 600,
+  color: "#fff",
+  textDecoration: "none",
+  boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+  transition: "all 0.2s ease",
+};
 const data = {
   company: "Prime Rest",
   tagline:
@@ -89,7 +101,6 @@ export default function ContactsPage() {
             </div>
           </Card>
 
-         
           <Card title="Telegram">
             <a
               href="https://t.me/prime_rest_apartments" // встав свій юзернейм або канал
@@ -105,11 +116,13 @@ export default function ContactsPage() {
           <Card title="Графік">
             <ul className="space-y-1">
               {data.working.map((w) => (
-                <li key={w.d} className="flex flex-col items-start justify-start">
+                <li
+                  key={w.d}
+                  className="flex flex-col items-start justify-start"
+                >
                   <span>{w.d}</span>
                   <span className="tabular-nums">24/7</span>
                 </li>
-                
               ))}
             </ul>
           </Card>
@@ -159,7 +172,8 @@ export default function ContactsPage() {
               </a>
               <Link
                 to="/book"
-                className="inline-block rounded-xl bg-brand-orange px-5 py-2.5 font-golos text-white shadow hover:opacity-95 active:scale-[0.99]"
+                style={{ background: brand.terracotta }}
+                className="inline-flex w-full items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-white sm:w-auto"
               >
                 Забронювати
               </Link>

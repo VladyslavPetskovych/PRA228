@@ -53,7 +53,7 @@ export default function TopBlock() {
           className="text-center font-golos font-extrabold tracking-tight text-brand-black leading-[1.1]
                      text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          Довгострокова оренда <span className="text-brand-black">у</span>{" "}
+          Довгострокова оренда у<span className="text-brand-black"></span>{" "}
           <span className="text-brand-orange">Львові</span>
         </h1>
 

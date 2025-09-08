@@ -119,11 +119,6 @@ export default function ApartmentCard({ apartment }) {
           {a.shortDesc}
         </p>
 
-        {/* параметри */}
-        <div className="mb-3 flex flex-wrap items-center gap-4 text-sm text-brand-black/80">
-          <span>🛏 {a.rooms} кімн.</span>
-          <span>▢ {a.area} м²</span>
-        </div>
 
         {/* зручності (перші 6) */}
         {a.amenities?.length > 0 && (
