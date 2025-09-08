@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import RoomGallery from "./RentDetail/RoomGallery";
+
+const FALLBACK_IMG =
+  "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop";
 
 function ShortTermRentDetail() {
   const { id } = useParams();
@@ -37,66 +41,110 @@ function ShortTermRentDetail() {
     return <div className="text-center py-10">Квартира не знайдена</div>;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6 mt-32 text-black">
-      {/* Фото зверху */}
-      {room.imgUrls?.length > 0 ? (
-        <img
-          src={room.imgUrls[0]}
-          alt={room.name}
-          className="w-full h-80 object-cover rounded-2xl mb-6 shadow"
-        />
-      ) : (
-        <div className="w-full h-80 bg-gray-200 rounded-2xl mb-6 flex items-center justify-center text-lg">
-          Фото відсутнє
-        </div>
-      )}
-
+    <div className="max-w-6xl mx-auto px-4 py-8 pt-32 text-brand-black/70">
       {/* Заголовок */}
-      <h1 className="text-2xl font-bold mb-2">{room.name || "Квартира"}</h1>
-
-      {/* Основна інформація */}
-      <div className="space-y-2 mb-6">
-        <p className="text-lg">
-          Тип: {room.category || `${room.numRooms}-кімнатна`}
-        </p>
-        <p className="text-lg">Площа: {room.square} м²</p>
+      <div className="mb-8">
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          {room.name || "Квартира"}
+        </h1>
+        <div className="flex items-center gap-3 text-gray-600 text-base">
+          <span className="px-3 py-1 bg-gray-100 rounded-full text-sm font-medium">
+            {room.category || `${room.numRooms}-кімнатна`}
+          </span>
+          <span className="text-gray-400">•</span>
+          <span className="flex items-center gap-1">
+            📍 {"Замарстинівська 76 б, Львів"}
+          </span>
+        </div>
       </div>
 
-      {/* Ціна над кнопками */}
-      <div className="text-center mb-6">
-        <p className="text-2xl font-bold">${room.pricePerMonth} / місяць</p>
-        <p className="text-sm">+ Комунальні послуги</p>
+      {/* Основний макет */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Фото + характеристики */}
+        <div className="lg:col-span-2">
+          <RoomGallery imgUrls={room.imgUrls} roomName={room.name} />
+
+          {/* Характеристики */}
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            <div>
+              <p className="text-lg font-bold">{room.numRooms || 1}</p>
+              <p className="text-sm text-gray-600">кімнати</p>
+            </div>
+            <div>
+              <p className="text-lg font-bold">{room.square}</p>
+              <p className="text-sm text-gray-600">площа</p>
+            </div>
+            <div>
+              <p className="text-lg font-bold">{room.guests}👥</p>
+              <p className="text-sm text-gray-600">гості</p>
+            </div>
+            <div>
+              <p className="text-lg font-bold">{room.beds}🛏</p>
+              <p className="text-sm text-gray-600">ліжка</p>
+            </div>
+          </div>
+
+          {/* Зручності */}
+          {room.amenities?.length > 0 && (
+            <div className="mt-6">
+              <h2 className="font-semibold mb-2">Зручності</h2>
+              <div className="flex flex-wrap gap-2">
+                {room.amenities.map((am, i) => (
+                  <span
+                    key={i}
+                    className="rounded-full border border-gray-300 bg-gray-100 px-3 py-1 text-sm"
+                  >
+                    {am}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Блок бронювання */}
+        <div className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 flex flex-col gap-4 h-fit">
+          <div>
+            <p className="text-2xl font-bold text-brand-black">
+              Від  {room.pricePerDay}{" "}
+              <span className="text-base font-normal">грн / ніч</span>
+            </p>
+            <p className="text-sm text-gray-600">+ Комунальні послуги</p>
+          </div>
+
+          <a
+            href="#booking"
+            className="w-full text-center rounded-xl bg-brand-orange px-4 py-3 font-semibold text-white shadow hover:opacity-95 transition"
+          >
+            Забронювати зараз
+          </a>
+
+          <div className="text-sm">
+            <p className="font-semibold mb-1">Контакти :</p>
+            <p className="mb-1">📞 +380777711400</p>
+            <p>⏱ Відповідь до 30хв </p>
+          </div>
+
+          <div className="text-sm">
+            <p className="font-semibold mb-1">Правила проживання:</p>
+            <p>Заїзд: 14:00</p>
+            <p>Виїзд: 11:00</p>
+            <p>Мін. термін: 2 ночі</p>
+          </div>
+        </div>
       </div>
 
-      {/* Зручності */}
-      {room.amenities?.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-6">
-          {room.amenities.map((am, i) => (
-            <span
-              key={i}
-              className="rounded-full border border-gray-300 bg-gray-100 px-3 py-1 text-sm"
-            >
-              {am}
-            </span>
-          ))}
+      {/* Опис */}
+      {room.description && (
+        <div className="mt-10 p-6 rounded-2xl bg-gray-50 border border-gray-200 shadow">
+          <h2 className="text-2xl font-bold mb-3 text-brand-black">
+            Опис квартири
+          </h2>
+          <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+            {room.description}
+          </p>
         </div>
       )}
-
-      {/* Кнопки */}
-      <div className="flex flex-col sm:flex-row gap-4">
-        <a
-          href="tel:+380777711400"
-          className="flex-1 text-center rounded-xl bg-brand-orange px-4 py-3 font-semibold text-white shadow hover:opacity-95 transition"
-        >
-          Зателефонувати
-        </a>
-        <a
-          href="#booking"
-          className="flex-1 text-center rounded-xl border border-brand-orange px-4 py-3 font-semibold text-brand-orange shadow hover:bg-brand-orange hover:text-white transition"
-        >
-          Забронювати
-        </a>
-      </div>
     </div>
   );
 }

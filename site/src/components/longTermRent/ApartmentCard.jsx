@@ -116,18 +116,18 @@ export default function ApartmentCard({ apartment }) {
 
           {/* Кнопки знизу */}
           <div className="flex flex-col sm:flex-row gap-2 w-full">
+            <Link
+              to={`/long-term-rent/${a.idWoodoo}`}
+              className="flex-1 text-center rounded-xl border border-brand-orange px-4 py-2 font-golos text-brand-orange shadow hover:bg-brand-orange hover:text-white transition-colors"
+            >
+              Детальніше
+            </Link>
             <a
               href="tel:+380777711400"
               className="flex-1 text-center rounded-xl bg-brand-orange px-4 py-2 font-golos text-white shadow hover:opacity-95"
             >
               Зателефонувати
             </a>
-            <Link
-              to={`/short-term-rent/${a.idWoodoo}`}
-              className="flex-1 text-center rounded-xl border border-brand-orange px-4 py-2 font-golos text-brand-orange shadow hover:bg-brand-orange hover:text-white transition-colors"
-            >
-              Детальніше
-            </Link>
           </div>
         </div>
       </div>

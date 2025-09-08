@@ -48,7 +48,7 @@ export default function ContactsPage() {
           >
             Контакти
           </div>
-          <h1 className="mt-2 text-2xl font-bold sm:text-3xl lg:text-4xl">
+          <h1 className="mt-2 text-2xl font-bold text-black sm:text-3xl lg:text-4xl">
             Ми на звʼязку 24/7
           </h1>
           <p className="mx-auto mt-2 max-w-2xl text-sm text-neutral-600 sm:text-base">
@@ -105,10 +105,11 @@ export default function ContactsPage() {
           <Card title="Графік">
             <ul className="space-y-1">
               {data.working.map((w) => (
-                <li key={w.d} className="flex items-center justify-between">
+                <li key={w.d} className="flex flex-col items-start justify-start">
                   <span>{w.d}</span>
-                  <span className="tabular-nums">{w.t}</span>
+                  <span className="tabular-nums">24/7</span>
                 </li>
+                
               ))}
             </ul>
           </Card>
