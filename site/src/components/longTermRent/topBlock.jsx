@@ -5,7 +5,7 @@ import {
   Headphones,
   Shield,
   KeyRound,
-  Percent ,
+  Percent,
 } from "lucide-react";
 import { Lightbulb } from "lucide-react";
 
@@ -39,14 +39,14 @@ export default function TopBlock() {
       desc: "Заселення в день підписання договору.",
     },
     {
-      icon: <Percent  className="h-6 w-6 text-brand-orange" />,
+      icon: <Percent className="h-6 w-6 text-brand-orange" />,
       title: "Особливі пропозиції",
       desc: "Знижки від ресторанів, салонів та інших партнерів.",
     },
   ];
 
   return (
-    <section className="relative pt-16 overflow-hidden bg-gradient-to-b from-[#F6F7F9] to-white">
+    <section className="relative pt-16 overflow-hidden bg-gradient-to-b from-brand-beige  to-[#F6F7F9]">
       <div className="mx-auto w-full max-w-6xl px-4 pt-16 pb-10 sm:pt-20 sm:pb-12">
         {/* Hero */}
         <h1
@@ -59,7 +59,7 @@ export default function TopBlock() {
 
         <p className="mx-auto mt-6 max-w-4xl text-center text-lg sm:text-xl text-neutral-700">
           Комфортне проживання від 1 місяця з повним сервісом та підтримкою. Ми
-          створили ідеальні умови для тих, хто шукає надійне житло на тривалий
+          надаємо ідеальні умови для тих, хто шукає надійне житло на тривалий
           період.
         </p>
 
@@ -75,7 +75,7 @@ export default function TopBlock() {
         {/* Features grid */}
         <div
           className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8
-                     bg-gradient-to-b from-white to-brand-beige/20 rounded-3xl p-2 sm:p-3"
+                     bg-opacity-90 rounded-3xl p-2 sm:p-3"
         >
           {features.map((f, i) => (
             <article
@@ -103,7 +103,7 @@ export default function TopBlock() {
       </div>
 
       {/* мʼяка тінь знизу для відсічення секції */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-white" />
+      
     </section>
   );
 }
