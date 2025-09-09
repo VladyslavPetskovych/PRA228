@@ -12,7 +12,7 @@ function Header() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-brand-black/90 text-brand-beige backdrop-blur-sm">
-        <div className="flex flex-wrap md:flex-nowrap items-center justify-between px-6 md:px-16 py-4 md:py-2 gap-y-4">
+        <div className="flex flex-wrap md:flex-nowrap items-center justify-between px-6 md:px-16  md:py-2 gap-y-4">
           <Logo />
           <Navigation />
           <ContactAndButton className="hidden md:flex" />
