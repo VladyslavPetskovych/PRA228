@@ -29,7 +29,11 @@ function MobileMenu({ isOpen, toggleMenu, hideButtons = false }) {
 
       {/* Відступ між навігацією і контактною кнопкою */}
       <div className="mt-28">
-        <ContactAndButton hideButtons={hideButtons} isMobile />
+        <ContactAndButton
+          hideButtons={hideButtons}
+          isMobile
+          onClick={toggleMenu}
+        />
       </div>
     </div>
   );

@@ -28,6 +28,10 @@ function ContactAndButton({ hideButtons = false, className = "" }) {
       <Link
         to="/book"
         className="border border-white rounded-full px-6 py-2 text-sm font-bold hover:bg-white hover:text-black transition"
+        onClick={() => {
+          if (onClick) onClick(); // додатковий обробник
+          // інші дії кнопки, якщо потрібні
+        }}
       >
         Забронювати
       </Link>
