@@ -106,19 +106,12 @@ function Hero() {
   return (
     <section
       className="relative"
-      style={{ minHeight: "56.25vw", maxHeight: 620 }}
     >
       {/* H1 заголовок для SEO */}
       <h1 className="sr-only">
         Оренда квартир у Львові – Prime Rest Apartments
       </h1>
 
-      {/* Якщо хочеш візуально показувати H1, а не ховати */}
-      {/* <h1 className="text-2xl md:text-4xl font-bold text-center mb-4">
-      Оренда квартир у Львові – Prime Rest Apartments
-    </h1> */}
-
-      {/* повідомлення про помилку */}
       {error && (
         <div className="mx-auto mb-2 max-w-5xl rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-700">
           Не вдалося завантажити квартири. Показуємо приклади.

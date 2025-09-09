@@ -7,7 +7,7 @@ import {
 
 function WhyUs() {
   return (
-    <section className="py-16 font-roboto bg-white text-center">
+    <section className="py-16  font-roboto bg-white text-center">
       <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-brand-orange mt-6">
         Чому обирають саме нас?
       </h2>

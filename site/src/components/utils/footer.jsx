@@ -34,7 +34,7 @@ function Footer() {
 
         {/* Контакти */}
         <div className="flex flex-col space-y-2">
-          <h4 className="text-lg font-semibold mb-2">Контакти</h4>
+          <h4 className="text-lg font-semibold mb-2">Зв'язок</h4>
           <a href="tel:+380685637315" className="hover:text-white transition">
             +380685637315
           </a>
