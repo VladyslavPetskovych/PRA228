@@ -4,6 +4,7 @@ import axios from "axios";
 import RoomGallery from "./RentDetail/RoomGallery";
 import RoomStats from "../shortTermRent/RoomStats";
 import Contacts from "../shortTermRent/Contacts";
+import { Helmet } from "react-helmet";
 
 const FALLBACK_IMG =
   "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop";
@@ -28,7 +29,6 @@ function LongTermRentDetail() {
         setLoading(false);
       }
     };
-
     fetchRoom();
   }, [id]);
 
@@ -42,10 +42,54 @@ function LongTermRentDetail() {
   if (!room)
     return <div className="text-center py-10">Квартира не знайдена</div>;
 
+  const pageTitle = room.name || "Квартира у Львові";
+  const pageDescription =
+    room.description?.substring(0, 160) ||
+    `${room.numRooms}-кімнатна квартира у Львові на довгострокову оренду.`;
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 pt-32 text-brand-black/70">
+      {/* SEO */}
+      <Helmet>
+        <title>{pageTitle} | Prime Rest Apartments</title>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={room.imgUrls?.[0] || FALLBACK_IMG} />
+        <meta property="og:type" content="website" />
+        <link
+          rel="canonical"
+          href={`https://primerestapartments.com/rooms/${id}`}
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Apartment",
+            name: room.name,
+            description: room.description,
+            image: room.imgUrls?.[0] || FALLBACK_IMG,
+            numberOfRooms: room.numRooms,
+            floorSize: room.square,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "вул. Замарстинівська, 76 б",
+              addressLocality: "Львів",
+              addressCountry: "UA",
+            },
+            price: room.pricePerMonth,
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+            additionalProperty: {
+              "@type": "PropertyValue",
+              name: "Комунальні послуги",
+              value: "Додатково",
+            },
+          })}
+        </script>
+      </Helmet>
+
       {/* Заголовок */}
-      <div className="mb-8">
+      <header className="mb-8">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-3 tracking-tight">
           {room.name || "Квартира"}
         </h1>
@@ -73,10 +117,10 @@ function LongTermRentDetail() {
             Львів, вул. Замарстинівська, 76 б
           </a>
         </div>
-      </div>
+      </header>
 
       {/* Основний макет */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <main className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Фото + характеристики */}
         <div className="lg:col-span-2">
           <RoomGallery imgUrls={room.imgUrls} roomName={room.name} />
@@ -85,7 +129,7 @@ function LongTermRentDetail() {
 
           {/* Зручності */}
           {room.amenities?.length > 0 && (
-            <div className="mt-6">
+            <section className="mt-6">
               <h2 className="font-semibold mb-2">Зручності</h2>
               <div className="flex flex-wrap gap-2">
                 {room.amenities.map((am, i) => (
@@ -97,16 +141,16 @@ function LongTermRentDetail() {
                   </span>
                 ))}
               </div>
-            </div>
+            </section>
           )}
         </div>
 
         {/* Блок бронювання */}
-        <div className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 flex flex-col gap-4 h-fit">
+        <aside className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 flex flex-col gap-4 h-fit">
           <div>
             <p className="text-2xl font-bold text-brand-black">
-              Від {room.pricePerMonth} ${" "}
-              <span className="text-base font-normal"> за місяць</span>
+              Від {room.pricePerMonth}{" "}
+              <span className="text-base font-normal">за місяць</span>
             </p>
             <p className="text-sm text-gray-600">+ Комунальні послуги</p>
           </div>
@@ -126,19 +170,19 @@ function LongTermRentDetail() {
             <p>Виїзд: 11:00</p>
             <p>Мін. термін: 1 місяць</p>
           </div>
-        </div>
-      </div>
+        </aside>
+      </main>
 
       {/* Опис */}
       {room.description && (
-        <div className="mt-10 p-6 rounded-2xl bg-gray-50 border border-gray-200 shadow">
+        <section className="mt-10 p-6 rounded-2xl bg-gray-50 border border-gray-200 shadow">
           <h2 className="text-2xl font-bold mb-3 text-brand-black">
             Опис квартири
           </h2>
           <p className="text-gray-700 leading-relaxed whitespace-pre-line">
             {room.description}
           </p>
-        </div>
+        </section>
       )}
     </div>
   );
