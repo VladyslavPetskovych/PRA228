@@ -61,7 +61,7 @@ export default function DontFindApartment({
 
   // ---------- VARIANT 2: Split (бежевий фон + акцент) ----------
   const V2 = () => (
-    <section className="mx-auto my-16 w-full max-w-6xl overflow-hidden rounded-3xl bg-brand-beige">
+    <section className="mx-auto my-16 w-full max-w-6xl overflow-hidden rounded-3xl bg-brand-beige shadow-xl transition-shadow hover:shadow-2xl">
       <div className="grid grid-cols-1 md:grid-cols-3">
         <div className="p-6 sm:p-10 md:col-span-2 space-y-3">
           <Title>Потрібна допомога з підбором?</Title>
