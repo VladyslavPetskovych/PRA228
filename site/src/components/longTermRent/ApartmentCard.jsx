@@ -81,7 +81,12 @@ export default function ApartmentCard({ apartment }) {
       {/* Контент */}
       <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
         <h3 className="mb-1 line-clamp-2 font-moderustic text-xl font-extrabold text-brand-black">
-          {a.title}
+          <Link
+            to={`/long-term-rent/${a.idWoodoo}`}
+            className="hover:underline"
+          >
+            {a.title}
+          </Link>
         </h3>
 
         <div className="mb-3 flex flex-wrap justify-start gap-6 text-sm text-brand-black/80">
