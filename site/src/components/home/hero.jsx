@@ -104,9 +104,7 @@ function Hero() {
   }
 
   return (
-    <section
-      className="relative"
-    >
+    <section className="relative">
       {/* H1 заголовок для SEO */}
       <h1 className="sr-only">
         Оренда квартир у Львові – Prime Rest Apartments
@@ -121,28 +119,33 @@ function Hero() {
       <div className="h-5" aria-hidden />
 
       <Slider {...settings}>
-        {(hasData ? apartments : placeholderSlides).map((apt, idx) => (
-          <SliderItem
-            key={apt.id || apt._id || `ph-${apt.title}`}
-            image={hasData ? getImage(apt) : apt.image}
-            title={hasData ? apt.name : apt.title}
-            price={
-              hasData
-                ? apt.pricePerMonth
-                  ? `₴${apt.pricePerMonth}`
-                  : "₴—"
-                : apt.price
-            }
-            details={
-              hasData
-                ? `${apt.guests ?? "—"} гостей · ${apt.beds ?? "—"} ліжка · ${
-                    apt.square ?? "—"
-                  }`
-                : apt.details
-            }
-            priority={idx === 0}
-          />
-        ))}
+        {(hasData ? apartments : placeholderSlides).map((apt, idx) => {
+          const route = hasData ? `/short-term-rent/${apt.idWoodoo || apt.idWoodoo}` : "/";
+
+          return (
+            <SliderItem
+              key={apt.id || apt._id || `ph-${apt.title}`}
+              image={hasData ? getImage(apt) : apt.image}
+              title={hasData ? apt.name : apt.title}
+              price={
+                hasData
+                  ? apt.pricePerMonth
+                    ? `₴${apt.pricePerMonth}`
+                    : "₴—"
+                  : apt.price
+              }
+              details={
+                hasData
+                  ? `${apt.guests ?? "—"} гостей · ${apt.beds ?? "—"} ліжка · ${
+                      apt.square ?? "—"
+                    }`
+                  : apt.details
+              }
+              priority={idx === 0}
+              route={route} // ✅ передаємо готовий route
+            />
+          );
+        })}
       </Slider>
     </section>
   );

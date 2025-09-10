@@ -12,13 +12,20 @@ function Header() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-brand-black/90 text-brand-beige backdrop-blur-sm">
-        <div className="flex flex-wrap md:flex-nowrap items-center justify-between px-6 md:px-16  md:py-2 gap-y-4">
+        <div className="flex flex-wrap md:flex-nowrap items-center justify-between px-6 md:px-16 md:py-2 gap-y-4">
           <Logo />
-          <Navigation />
-          <ContactAndButton className="hidden md:flex" />
 
+          {/* Навігація тільки для md+ */}
+          <div className="hidden md:flex">
+            <Navigation />
+          </div>
+
+          {/* Контакти тільки для md+ */}
+          <ContactAndButton className="hidden lg:flex" />
+
+          {/* Бургер показуємо для всіх, крім lg+ */}
           <button
-            className="md:hidden ml-auto flex flex-col justify-center items-center w-10 h-10 relative group"
+            className="flex lg:hidden ml-auto flex-col justify-center items-center w-10 h-10 relative group"
             onClick={toggleMenu}
             aria-label="Toggle Menu"
           >
@@ -40,6 +47,8 @@ function Header() {
           </button>
         </div>
       </header>
+
+      {/* Мобільне меню */}
       <MobileMenu isOpen={menuOpen} toggleMenu={toggleMenu} />
     </>
   );

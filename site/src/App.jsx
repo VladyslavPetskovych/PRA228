@@ -12,11 +12,13 @@ import LongTermRentDetail from "./components/longTermRent/LongTermRentDetail";
 import NotFound from "./pages/NotFound";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import ScrollToTop from "./components/utils/ScrollToTop";
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
+        <ScrollToTop />
         <div className="bg-white font-sans flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">

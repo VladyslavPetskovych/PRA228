@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navigation() {
   return (
-    <nav className="hidden md:flex flex-wrap items-center gap-x-6 font-bold text-base">
+    <nav className="hidden lg:flex flex-wrap items-center gap-x-6 font-bold text-base">
       <Link to="/" className="hover:text-brand-orange transition">
         Головна
       </Link>
