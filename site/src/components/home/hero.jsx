@@ -116,7 +116,7 @@ function Hero() {
         </div>
       )}
 
-      <div className="h-5" aria-hidden />
+      <div className="" aria-hidden />
 
       <Slider {...settings}>
         {(hasData ? apartments : placeholderSlides).map((apt, idx) => {
