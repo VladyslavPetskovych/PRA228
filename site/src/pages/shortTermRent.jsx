@@ -9,6 +9,7 @@ function ShortTermRent() {
       <TopBlock />
       <ApartmentsGrid />
       <DontFindApartment variant={2} />
+      
     </div>
   );
 }

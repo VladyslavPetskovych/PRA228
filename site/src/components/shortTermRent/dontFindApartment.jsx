@@ -13,7 +13,7 @@ export default function DontFindApartment({
   phoneLabel = "+380 777 711 400",
   tg = "https://t.me/prime_rest_apartments",
   catalogHref = "/short-term-rent",
-  requestHref = "/short-term-rent", 
+  requestHref = "/short-term-rent",
 }) {
   const Title = ({ children }) => (
     <h2 className="font-moderustic text-2xl sm:text-3xl font-semibold text-brand-black">
@@ -49,15 +49,13 @@ export default function DontFindApartment({
 
   const PhoneBtn = () => (
     <a
-      href={`tel:${phone}`}
+      href="/book"
       className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm sm:text-base font-semibold text-brand-white"
       style={{ background: "#B86F21" }}
     >
-      Зателефонувати 
+      Забронювати
     </a>
   );
-
-
 
   // ---------- VARIANT 2: Split (бежевий фон + акцент) ----------
   const V2 = () => (
@@ -108,8 +106,7 @@ export default function DontFindApartment({
     </section>
   );
 
-
-  const variants = {2: V2,  };
+  const variants = { 2: V2 };
   const Comp = variants[variant] ?? V1;
   return <Comp />;
 }

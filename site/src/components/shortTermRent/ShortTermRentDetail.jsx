@@ -5,6 +5,7 @@ import RoomGallery from "./RentDetail/RoomGallery";
 import RoomStats from "./RoomStats";
 import Contacts from "./Contacts";
 import { Helmet } from "react-helmet";
+import Rules from "../utils/rules";
 
 const FALLBACK_IMG =
   "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop";
@@ -179,6 +180,9 @@ function ShortTermRentDetail() {
           </p>
         </section>
       )}
+      <section className="my-10">
+        <Rules type="short" />
+      </section>
     </div>
   );
 }

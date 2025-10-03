@@ -5,6 +5,7 @@ import RoomGallery from "./RentDetail/RoomGallery";
 import RoomStats from "../shortTermRent/RoomStats";
 import Contacts from "../shortTermRent/Contacts";
 import { Helmet } from "react-helmet";
+import Rules from "../utils/rules";
 
 const FALLBACK_IMG =
   "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop";
@@ -184,6 +185,7 @@ function LongTermRentDetail() {
           </p>
         </section>
       )}
+      <Rules type="long" />
     </div>
   );
 }
