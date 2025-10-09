@@ -2,6 +2,7 @@
 import Hero from "../components/home/hero";
 import PlaceToLiveIn from "../components/home/placeToLiveIn";
 import WhyUs from "../components/home/whyUs";
+import GridBlock from "../components/home/gridBlock";
 
 function home() {
   return (
@@ -9,6 +10,7 @@ function home() {
       <Hero />
       <WhyUs/>
       <PlaceToLiveIn />
+      <GridBlock/>
     </div>
   );
 }

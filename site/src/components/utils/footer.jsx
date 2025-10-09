@@ -8,8 +8,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <img src={logo} alt="Prime Yard" className="h-10 md:h-16" />
-            <span className="text-xl font-semibold">Prime Rest</span>
+            <img src={logo} alt="Prime Yard" className="h-16 md:h-24" />
           </div>
           <p className="text-sm opacity-70">
             Стильні квартири для вашого комфортного відпочинку у Львові.

@@ -1,29 +1,41 @@
 import { Link } from "react-router-dom";
 
-function Navigation() {
+function Navigation({ className = "" }) {
   return (
-    <nav className="hidden lg:flex flex-wrap items-center gap-x-6 font-bold text-base">
-      <Link to="/" className="hover:text-brand-orange transition">
+    <nav
+      className={`hidden lg:grid lg:grid-cols-2 xl:flex xl:flex-wrap xl:justify-center gap-x-12 gap-y-3 font-bold text-base ${className}`}
+      aria-label="Main navigation"
+    >
+      {/* Головна */}
+      <Link
+        to="/"
+        className="hover:text-brand-orange transition text-center order-1"
+      >
         Головна
       </Link>
-      {/* <Link to="/" className="hover:text-brand-orange transition">
-        Квартири
-      </Link> */}
 
-      <div className="hidden lg:flex gap-x-6">
-        <Link
-          to="/short-term-rent"
-          className="hover:text-brand-orange transition"
-        >
-          Короткострокова оренда
-        </Link>
-        <Link to="/long-term-rent" className="hover:text-brand-orange transition">
-          Довгострокова оренда
-        </Link>
-      </div>
+      {/* Короткострокова */}
+      <Link
+        to="/short-term-rent"
+        className="hover:text-brand-orange transition text-center order-2"
+      >
+        Короткострокова оренда
+      </Link>
 
-      <Link to="/contacts" className="hover:text-brand-orange transition">
+      {/* Контакти */}
+      <Link
+        to="/contacts"
+        className="hover:text-brand-orange transition text-center order-3 xl:order-4"
+      >
         Контакти
+      </Link>
+
+      {/* Довгострокова */}
+      <Link
+        to="/long-term-rent"
+        className="hover:text-brand-orange transition text-center order-4 xl:order-3"
+      >
+        Довгострокова оренда
       </Link>
     </nav>
   );

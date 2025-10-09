@@ -15,7 +15,7 @@ function ContactAndButton({ hideButtons = false, className = "" }) {
 
   return (
     <div
-      className={`flex flex-col items-center gap-4 px-2 relative ${className}`}
+      className={`flex flex-row-reverse items-center gap-4 px-2 relative ${className}`}
     >
       <button
         onClick={handleCopy}

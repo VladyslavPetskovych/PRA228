@@ -20,7 +20,7 @@ function PlaceToLiveIn() {
           Prime Rest — це сучасні квартири у Львові.
           Власний простір для життя, роботи та натхнення.
         </p>
-        <ActionButton text={"Спробуйте вже сьогодні"} route={"/long-term-rent"}/>
+        <ActionButton text={"Спробуйте вже сьогодні"} route={"/book"}/>
       </div>
     </section>
   );
