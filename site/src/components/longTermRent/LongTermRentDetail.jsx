@@ -150,7 +150,7 @@ function LongTermRentDetail() {
         <aside className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 flex flex-col gap-4 h-fit">
           <div>
             <p className="text-2xl font-bold text-brand-black">
-              Від {room.pricePerMonth}{" "}
+              Від {room.pricePerMonth}{"$ "}
               <span className="text-base font-normal">за місяць</span>
             </p>
             <p className="text-sm text-gray-600">+ Комунальні послуги</p>
