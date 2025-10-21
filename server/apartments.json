@@ -9,7 +9,7 @@
     "beds": 2,
     "guests": 4,
     "pricePerDay": 1800,
-    "pricePerMonth": 700,
+    "pricePerMonth": 800,
     "category": "Комфорт",
     "amenities": [
       "Wi-Fi",
@@ -41,7 +41,7 @@
     "beds": 2,
     "guests": 4,
     "pricePerDay": 1900,
-    "pricePerMonth": 800,
+    "pricePerMonth": 900,
     "category": "Люкс",
     "amenities": [
       "Wi-Fi",
@@ -73,7 +73,7 @@
     "beds": 1,
     "guests": 2,
     "pricePerDay": 1400,
-    "pricePerMonth": 600,
+    "pricePerMonth": 800,
     "category": "Люкс",
     "amenities": [
       "Wi-Fi",
@@ -106,7 +106,7 @@
     "beds": 3,
     "guests": 6,
     "pricePerDay": 2000,
-    "pricePerMonth": 1000,
+    "pricePerMonth": 1100,
     "category": "Комфорт",
     "amenities": [
       "Wi-Fi",
@@ -139,7 +139,7 @@
     "beds": 2,
     "guests": 4,
     "pricePerDay": 1900,
-    "pricePerMonth": 850,
+    "pricePerMonth": 950,
     "category": "Люкс",
     "amenities": [
       "🛁 Ванна",
