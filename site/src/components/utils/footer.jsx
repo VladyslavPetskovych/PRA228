@@ -29,23 +29,24 @@ function Footer() {
           <Link to="/contacts" className="hover:text-white transition">
             Контакти
           </Link>
+
+          {/* НОВИЙ ПУНКТ */}
+          <Link
+            to="/terms-and-conditions"
+            className="hover:text-white transition"
+          >
+            Умови та положення
+          </Link>
         </div>
 
-        {/* Контакти */}
         <div className="flex flex-col space-y-2">
           <h4 className="text-lg font-semibold mb-2">Зв'язок</h4>
           <a href="tel:+380685637315" className="hover:text-white transition">
             +380685637315
           </a>
-          <a href="tel:+380685637315" className="hover:text-white transition">
+          <a href="tel:+380777711400" className="hover:text-white transition">
             +380777711400
           </a>
-          {/* <a
-            href="mailto:info@primeyard.com"
-            className="hover:text-white transition"
-          >
-            primeyardapartments@gmail.com
-          </a> */}
         </div>
       </div>
 

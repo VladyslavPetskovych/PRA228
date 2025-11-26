@@ -10,6 +10,7 @@ import ShortTermRentDetail from "./components/shortTermRent/ShortTermRentDetail"
 import LongTermRent from "./pages/longTermRent";
 import LongTermRentDetail from "./components/longTermRent/LongTermRentDetail";
 import NotFound from "./pages/NotFound";
+import TermsAndConditions from "./pages/termsAndConditions"; // ⬅️ ДОДАНО
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import ScrollToTop from "./components/utils/ScrollToTop";
@@ -24,6 +25,7 @@ function App() {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
+
               <Route path="/short-term-rent" element={<ShortTermRent />} />
               <Route
                 path="/short-term-rent/:id"
@@ -35,8 +37,17 @@ function App() {
                 path="/long-term-rent/:id"
                 element={<LongTermRentDetail />}
               />
+
               <Route path="/book" element={<Book />} />
+
               <Route path="/contacts" element={<Contacts />} />
+
+              {/* ⬇️ ТВОЯ НОВА СТОРІНКА */}
+              <Route
+                path="/terms-and-conditions"
+                element={<TermsAndConditions />}
+              />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
