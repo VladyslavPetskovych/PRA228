@@ -38,7 +38,7 @@ services:
       - ./nginx/nginx.conf.template:/etc/nginx/templates/default.conf.template
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-      - /var/www/Quademar/site/dist:/var/www/Quademar/site/dist:ro
+      - /root/var/www/Quademar/site/dist:/var/www/Quademar/site/dist:ro
     networks:
       - prime-yard-apartments-app
     depends_on:
