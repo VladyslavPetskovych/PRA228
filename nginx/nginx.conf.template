@@ -2,6 +2,22 @@ server {
     listen 80;
     server_name guardamarhotelspa.com www.guardamarhotelspa.com;
 
+    location ~ /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name guardamarhotelspa.com www.guardamarhotelspa.com;
+
+    ssl_certificate     /etc/letsencrypt/live/guardamarhotelspa.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/guardamarhotelspa.com/privkey.pem;
+
     root /var/www/Quademar/site/dist;
     index index.html;
 
@@ -26,6 +42,7 @@ server {
     ssl_certificate     /etc/letsencrypt/live/${DOMAIN}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/${DOMAIN}/privkey.pem;
     server_name ${DOMAIN};
+
     root /var/www/html;
     index index.php index.html index.htm;
 
