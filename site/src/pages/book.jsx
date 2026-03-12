@@ -62,13 +62,14 @@ function Book() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          
+           
           <img
             src="https://wubook.net/imgs/default/booking_by_wu.gif"
             alt="WuBook online reception"
             title="Hotel and tourism solutions"
             style={{ border: "none", textDecoration: "none" }}
           />
+          
         </a>
       </div>
     </div>
