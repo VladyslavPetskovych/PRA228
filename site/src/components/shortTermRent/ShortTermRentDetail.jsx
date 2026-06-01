@@ -164,7 +164,7 @@ function ShortTermRentDetail() {
             <p className="font-semibold mb-1">Правила проживання:</p>
             <p>Заїзд: 14:00</p>
             <p>Виїзд: 11:00</p>
-            <p>Мін. термін: 2 ночі</p>
+            <p>Мін. термін: 1 ніч</p>
           </div>
         </aside>
       </main>

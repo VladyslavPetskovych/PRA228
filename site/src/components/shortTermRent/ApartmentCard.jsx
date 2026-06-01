@@ -99,7 +99,7 @@ export default function ApartmentCard({ apartment }) {
         </div>
 
         <div className="absolute right-3 top-3 flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-brand-black shadow">
-          <span className="ml-2">🌙 Мін. 2 ночі</span>
+          <span className="ml-2">🌙 Мін. 1 ніч</span>
         </div>
       </div>
 

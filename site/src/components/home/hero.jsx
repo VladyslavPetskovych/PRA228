@@ -53,7 +53,9 @@ function Hero() {
     autoplay: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    lazyLoad: "ondemand",
+    // без lazyLoad: "ondemand" — інакше react-slick рендерить ще не активні
+    // слайди порожніми (білими) до моменту переходу. Тепер усі слайди й їхні
+    // фото готові одразу, тож під час «слайду» нічого не блимає білим.
     adaptiveHeight: false,
     arrows: true,
     prevArrow: <PrevArrow />,
@@ -68,21 +70,27 @@ function Hero() {
         image: Placeholder,
         title: "Преміальні квартири",
         price: "₴—",
-        details: "— гостей · — ліжок · — м²",
+        guests: "—",
+        beds: "—",
+        square: "— м²",
       },
       {
         id: "ph-2",
         image: Placeholder,
         title: "Стильний інтерʼєр",
         price: "₴—",
-        details: "— гостей · — ліжок · — м²",
+        guests: "—",
+        beds: "—",
+        square: "— м²",
       },
       {
         id: "ph-3",
         image: Placeholder,
         title: "Скоро будуть доступні",
         price: "₴—",
-        details: "— гостей · — ліжок · — м²",
+        guests: "—",
+        beds: "—",
+        square: "— м²",
       },
     ],
     []
@@ -134,13 +142,9 @@ function Hero() {
                     : "₴—"
                   : apt.price
               }
-              details={
-                hasData
-                  ? `${apt.guests ?? "—"} гостей · ${apt.beds ?? "—"} ліжка · ${
-                      apt.square ?? "—"
-                    }`
-                  : apt.details
-              }
+              guests={hasData ? apt.guests ?? "—" : apt.guests}
+              beds={hasData ? apt.beds ?? "—" : apt.beds}
+              square={hasData ? apt.square ?? "— м²" : apt.square}
               priority={idx === 0}
               route={route} // ✅ передаємо готовий route
             />
