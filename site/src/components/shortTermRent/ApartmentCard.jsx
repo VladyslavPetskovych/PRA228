@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import TouristTaxInfo from "../utils/TouristTaxInfo";
 
 // запасна картинка
 const FALLBACK_IMG =
@@ -187,14 +188,17 @@ export default function ApartmentCard({ apartment }) {
         {/* низ (оновлено) */}
         <div className="mt-auto flex flex-col gap-3">
           {/* ціна зверху */}
-          <div className="font-moderustic text-2xl font-extrabold text-brand-black">
-            <span className="text-base font-normal text-brand-black/70">
-              Від{" "}
-            </span>
-            ₴{Number(a.price).toLocaleString("uk-UA")}{" "}
-            <span className="text-base font-normal text-brand-black/70">
-              / ніч
-            </span>
+          <div>
+            <div className="font-moderustic text-2xl font-extrabold text-brand-black">
+              <span className="text-base font-normal text-brand-black/70">
+                Від{" "}
+              </span>
+              ₴{Number(a.price).toLocaleString("uk-UA")}{" "}
+              <span className="text-base font-normal text-brand-black/70">
+                / ніч
+              </span>
+            </div>
+            <TouristTaxInfo className="mt-0.5" />
           </div>
 
           {/* дві кнопки знизу */}

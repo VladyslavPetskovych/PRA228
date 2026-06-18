@@ -50,14 +50,43 @@ export default function TermsAndConditions() {
             <ul className="list-decimal pl-5 marker:text-brand-orange text-brand-black space-y-3">
               <li>Передоплата гарантує закріплення квартири.</li>
               <li>При скасуваванні бронювання,безкоштовне повернення коштів - 30 днів до заїзду. (Протягом 3 банківських робочих днів)</li>
-              
+
             </ul>
           </section>
 
           {/* 3 */}
           <section>
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
-              3. Заселення та проживання
+              3. Туристичний збір
+            </h2>
+            <p className="text-brand-black leading-relaxed mb-4">
+              Додатково до вартості проживання сплачується туристичний збір:
+              43,24 грн за добу проживання — для громадян України, 86,47 грн за
+              добу — для іноземців.
+            </p>
+            <p className="text-brand-black leading-relaxed mb-4">
+              Від сплати туристичного збору звільняються гості, які можуть надати
+              підтверджувальні документи про:
+            </p>
+            <ul className="list-disc pl-5 marker:text-brand-orange text-brand-black space-y-3">
+              <li>
+                реєстрацію місця проживання у м. Львів або у Львівській області;
+              </li>
+              <li>службове відрядження;</li>
+              <li>статус учасника бойових дій (УБД);</li>
+              <li>статус внутрішньо переміщеної особи (ВПО).</li>
+            </ul>
+            <p className="text-brand-black leading-relaxed mt-4">
+              Якщо ви не належите до жодної з вищезазначених категорій і не маєте
+              відповідних документів, туристичний збір необхідно сплатити
+              додатково.
+            </p>
+          </section>
+
+          {/* 4 */}
+          <section>
+            <h2 className="text-2xl font-semibold text-brand-orange mb-4">
+              4. Заселення та проживання
             </h2>
             <p className="text-brand-black mb-4 leading-relaxed">
               Заселення — після 14:00, виселення — до 11:00. Гість повинен мати
@@ -70,10 +99,10 @@ export default function TermsAndConditions() {
             </ul>
           </section>
 
-          {/* 4 */}
+          {/* 5 */}
           <section>
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
-              4. Конфіденційність та обробка даних
+              5. Конфіденційність та обробка даних
             </h2>
             <p className="text-brand-black leading-relaxed">
               Персональні дані використовуються лише для обробки бронювання і не
@@ -81,10 +110,10 @@ export default function TermsAndConditions() {
             </p>
           </section>
 
-          {/* 5 */}
+          {/* 6 */}
           <section>
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
-              5. Відповідальність сторін
+              6. Відповідальність сторін
             </h2>
             <ul className="list-disc pl-5 marker:text-brand-orange text-brand-black space-y-3 leading-relaxed">
               <li>Тимчасові технічні збої роботи сайту.</li>
@@ -93,10 +122,10 @@ export default function TermsAndConditions() {
             </ul>
           </section>
 
-          {/* 6 */}
+          {/* 7 */}
           <section>
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
-              6. Зміни до правил
+              7. Зміни до правил
             </h2>
             <p className="text-brand-black leading-relaxed">
               Компанія залишає за собою право змінювати ці умови без
@@ -104,10 +133,10 @@ export default function TermsAndConditions() {
             </p>
           </section>
 
-          {/* 7 */}
+          {/* 8 */}
           <section>
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
-              7. Надавачі послуг
+              8. Надавачі послуг
             </h2>
             <p className="text-brand-black mb-4 leading-relaxed">
               Послуги з розміщення надаються наступними субʼєктами

@@ -6,6 +6,7 @@ import RoomStats from "./RoomStats";
 import Contacts from "./Contacts";
 import { Helmet } from "react-helmet";
 import Rules from "../utils/rules";
+import TouristTaxInfo from "../utils/TouristTaxInfo";
 
 const FALLBACK_IMG =
   "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop";
@@ -149,6 +150,7 @@ function ShortTermRentDetail() {
               Від {room.pricePerDay}{" "}
               <span className="text-base font-normal">грн / ніч</span>
             </p>
+            <TouristTaxInfo className="mt-1" />
           </div>
 
           <a
