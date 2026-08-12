@@ -68,7 +68,10 @@ export default function ContactsPage() {
             },
             "telephone": ["+380777711400", "+380685637315"],
             "url": "https://primerestapartments.com/contacts",
-            "sameAs": ["https://t.me/prime_rest_apartments"]
+            "sameAs": [
+              "https://t.me/prime_rest_apartments",
+              "https://www.instagram.com/prime.rest.apartments/"
+            ]
           }
           `}
         </script>
@@ -142,18 +145,48 @@ export default function ContactsPage() {
               </div>
             </Card>
 
-            {/* Telegram */}
-            <Card title="Telegram">
-              <a
-                href="https://t.me/prime_rest_apartments"
-                target="_blank"
-                rel="noreferrer"
-                className="underline"
-                style={{ color: brand.terracotta }}
-                title="Наш Telegram канал Prime Rest"
-              >
-                @prime_rest_apartments
-              </a>
+            {/* Соцмережі */}
+            <Card title="Соцмережі">
+              <div className="flex flex-col gap-2 items-center sm:items-start">
+                <a
+                  href="https://t.me/prime_rest_apartments"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 underline"
+                  style={{ color: brand.terracotta }}
+                  title="Наш Telegram канал Prime Rest"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M228.88,26.19a9,9,0,0,0-9.16-1.57L17.06,103.93a14.22,14.22,0,0,0,2.43,27.21L72,141.45V200a15.92,15.92,0,0,0,10,14.83,15.91,15.91,0,0,0,17.51-3.73l25.32-26.26L165,220.29A15.88,15.88,0,0,0,175.48,224a16.07,16.07,0,0,0,5-.79,15.85,15.85,0,0,0,10.6-11.51L231.77,35.14A9,9,0,0,0,228.88,26.19Zm-61.14,36L78.15,126.35l-49.6-9.73ZM88,200V152.52l24.79,21.74Zm87.53,8L92.85,135.5l119-85.29Z"></path>
+                  </svg>
+                  @prime_rest_apartments
+                </a>
+                <a
+                  href="https://www.instagram.com/prime.rest.apartments/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 underline"
+                  style={{ color: brand.terracotta }}
+                  title="Наш Instagram Prime Rest"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+                  </svg>
+                  @prime.rest.apartments
+                </a>
+              </div>
             </Card>
 
             {/* Графік */}
