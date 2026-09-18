@@ -47,6 +47,7 @@ export default function TermsAndConditions() {
               підтвердження. Бронювання вважається дійсним після внесення
               передоплати.
             </p>
+            
             <ul className="list-decimal pl-5 marker:text-brand-orange text-brand-black space-y-3">
               <li>Передоплата гарантує закріплення квартири.</li>
               <li>При скасуваванні бронювання,безкоштовне повернення коштів - 30 днів до заїзду. (Протягом 3 банківських робочих днів)</li>
