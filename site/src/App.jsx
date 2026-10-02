@@ -14,12 +14,14 @@ import TermsAndConditions from "./pages/termsAndConditions"; // ⬅️ ДОДА�
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import ScrollToTop from "./components/utils/ScrollToTop";
+import MetaPixelPageView from "./components/utils/MetaPixelPageView";
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
         <ScrollToTop />
+        <MetaPixelPageView />
         <div className="bg-white font-sans flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">
