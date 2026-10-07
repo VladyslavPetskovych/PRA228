@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/utils/header/header";
 import Footer from "./components/utils/footer";
 import Home from "./pages/home";
@@ -16,6 +16,42 @@ import store from "./redux/store";
 import ScrollToTop from "./components/utils/ScrollToTop";
 import MetaPixelPageView from "./components/utils/MetaPixelPageView";
 
+// Плавна поява кожної нової сторінки
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <div key={location.pathname} className="page-enter">
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/short-term-rent" element={<ShortTermRent />} />
+        <Route
+          path="/short-term-rent/:id"
+          element={<ShortTermRentDetail />}
+        />
+
+        <Route path="/long-term-rent" element={<LongTermRent />} />
+        <Route
+          path="/long-term-rent/:id"
+          element={<LongTermRentDetail />}
+        />
+
+        <Route path="/book" element={<Book />} />
+
+        <Route path="/contacts" element={<Contacts />} />
+
+        {/* ⬇️ ТВОЯ НОВА СТОРІНКА */}
+        <Route
+          path="/terms-and-conditions"
+          element={<TermsAndConditions />}
+        />
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
+  );
+}
+
 function App() {
   return (
     <Provider store={store}>
@@ -25,33 +61,7 @@ function App() {
         <div className="bg-white font-sans flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-
-              <Route path="/short-term-rent" element={<ShortTermRent />} />
-              <Route
-                path="/short-term-rent/:id"
-                element={<ShortTermRentDetail />}
-              />
-
-              <Route path="/long-term-rent" element={<LongTermRent />} />
-              <Route
-                path="/long-term-rent/:id"
-                element={<LongTermRentDetail />}
-              />
-
-              <Route path="/book" element={<Book />} />
-
-              <Route path="/contacts" element={<Contacts />} />
-
-              {/* ⬇️ ТВОЯ НОВА СТОРІНКА */}
-              <Route
-                path="/terms-and-conditions"
-                element={<TermsAndConditions />}
-              />
-
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <AnimatedRoutes />
           </main>
           <Footer />
         </div>

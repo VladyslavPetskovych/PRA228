@@ -27,7 +27,7 @@ function Header() {
           <button
             className="flex lg:hidden ml-auto flex-col justify-center items-center w-10 h-10 relative group"
             onClick={toggleMenu}
-            aria-label="Toggle Menu"
+            aria-label="Відкрити меню"
           >
             <span
               className={`block w-8 h-0.5 bg-brand-beige transition-transform duration-300 ease-in-out ${

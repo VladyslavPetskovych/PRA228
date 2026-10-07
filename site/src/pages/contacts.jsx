@@ -1,5 +1,6 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import Seo from "../components/utils/Seo";
+import Reveal from "../components/utils/Reveal";
 import apartmentImg from "../assets/homePage/placeholder.jpg";
 import { Link } from "react-router-dom";
 
@@ -9,73 +10,27 @@ const brand = {
   beige: "#F5E9DB",
 };
 
-const Card = ({ title, children }) => (
-  <div
-    className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-5 shadow-lg hover:shadow-2xl transition-shadow duration-300 sm:p-6 flex flex-col items-center text-center sm:items-start sm:text-left"
-    style={{ borderColor: "rgba(255,255,255,0.2)" }}
-  >
-    <h2
-      className="mb-2 text-xs font-semibold uppercase tracking-wide sm:text-sm"
-      style={{ color: brand.terracotta }}
+const Card = ({ title, children, delay = 0 }) => (
+  <Reveal delay={delay} className="h-full">
+    <div
+      className="h-full rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-5 shadow-lg hover:shadow-2xl transition-shadow duration-300 sm:p-6 flex flex-col items-center text-center sm:items-start sm:text-left"
+      style={{ borderColor: "rgba(255,255,255,0.2)" }}
     >
-      {title}
-    </h2>
-    <div className="text-[15px] leading-7 text-neutral-800">{children}</div>
-  </div>
+      <h2
+        className="mb-2 text-xs font-semibold uppercase tracking-wide sm:text-sm"
+        style={{ color: brand.terracotta }}
+      >
+        {title}
+      </h2>
+      <div className="text-[15px] leading-7 text-neutral-800">{children}</div>
+    </div>
+  </Reveal>
 );
 
 export default function ContactsPage() {
   return (
     <>
-      <Helmet>
-        <title>Контакти — Prime Rest Львів | Квартири преміум-класу</title>
-        <meta
-          name="description"
-          content="Контакти Prime Rest у Львові: адреса, телефон, Telegram та графік роботи 24/7. Квартири преміум-класу для коротко- та довгострокової оренди."
-        />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://primerestapartments.com/contacts" />
-
-        {/* Open Graph */}
-        <meta property="og:title" content="Контакти — Prime Rest Львів" />
-        <meta
-          property="og:description"
-          content="Контакти Prime Rest у Львові: адреса, телефон, Telegram та графік роботи 24/7."
-        />
-        <meta
-          property="og:image"
-          content="https://primerestapartments.com/assets/homePage/placeholder.jpg"
-        />
-        <meta
-          property="og:url"
-          content="https://primerestapartments.com/contacts"
-        />
-        <meta property="og:type" content="website" />
-
-        {/* JSON-LD */}
-        <script type="application/ld+json">
-          {`
-          {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Prime Rest",
-            "image": "https://primerestapartments.com/assets/homePage/placeholder.jpg",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "вул. Замарстинівська, 76Б",
-              "addressLocality": "Львів",
-              "addressCountry": "UA"
-            },
-            "telephone": ["+380777711400", "+380685637315"],
-            "url": "https://primerestapartments.com/contacts",
-            "sameAs": [
-              "https://t.me/prime_rest_apartments",
-              "https://www.instagram.com/prime.rest.apartments/"
-            ]
-          }
-          `}
-        </script>
-      </Helmet>
+      <Seo path="/contacts" />
 
       <main
         className="min-h-screen pt-32"
@@ -104,7 +59,7 @@ export default function ContactsPage() {
 
           {/* Top cards */}
           <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <Card title="Адреса">
+            <Card title="Адреса" delay={0}>
               <p className="mb-2 font-medium">
                 вул. Замарстинівська, 76Б, Львів
               </p>
@@ -124,7 +79,7 @@ export default function ContactsPage() {
             </Card>
 
             {/* Телефон */}
-            <Card title="Телефон">
+            <Card title="Телефон" delay={100}>
               <div className="flex flex-col gap-2 items-center sm:items-start">
                 <a
                   href="tel:+380777711400"
@@ -146,7 +101,7 @@ export default function ContactsPage() {
             </Card>
 
             {/* Соцмережі */}
-            <Card title="Соцмережі">
+            <Card title="Соцмережі" delay={200}>
               <div className="flex flex-col gap-2 items-center sm:items-start">
                 <a
                   href="https://t.me/prime_rest_apartments"
@@ -190,7 +145,7 @@ export default function ContactsPage() {
             </Card>
 
             {/* Графік */}
-            <Card title="Графік">
+            <Card title="Графік" delay={300}>
               <ul className="space-y-1 flex flex-col items-center sm:items-start">
                 <li className="flex flex-col items-center sm:items-start">
                   <span>Пн–Нд</span>

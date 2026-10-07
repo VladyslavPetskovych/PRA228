@@ -2,4 +2,115 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------- Анімації ---------- */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
 
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Плавна поява фото після завантаження (лише opacity — не конфліктує з hover-zoom) */
+.smart-img {
+  opacity: 0;
+}
+.smart-img.is-loaded {
+  animation: img-in 0.6s var(--ease-out) forwards;
+}
+@keyframes img-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Поява блоків під час прокрутки (<Reveal>) */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal-up { transform: translate3d(0, 32px, 0); }
+.reveal-down { transform: translate3d(0, -32px, 0); }
+.reveal-left { transform: translate3d(-40px, 0, 0); }
+.reveal-right { transform: translate3d(40px, 0, 0); }
+.reveal-zoom { transform: scale(0.94); }
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* Перехід між сторінками */
+.page-enter {
+  animation: page-in 0.5s var(--ease-out) both;
+}
+@keyframes page-in {
+  from { opacity: 0; transform: translate3d(0, 12px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Текст на активному слайді героя з'являється по черзі */
+.slick-active .hero-content > * {
+  animation: hero-in 0.9s var(--ease-out) both;
+}
+.slick-active .hero-content > :nth-child(2) { animation-delay: 0.12s; }
+.slick-active .hero-content > :nth-child(3) { animation-delay: 0.24s; }
+@keyframes hero-in {
+  from { opacity: 0; transform: translate3d(0, 28px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Повільне «дихання» фото на активному слайді (Ken Burns) */
+.hero-photo {
+  transform: scale(1.06);
+  transition: transform 7s ease-out;
+}
+.slick-active .hero-photo {
+  transform: scale(1);
+}
+
+/* Скелетон із «бліком» замість плаского animate-pulse */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: #e5e7eb;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  animation: shimmer 1.4s infinite;
+}
+.skeleton-dark {
+  background-color: #2a2a2a;
+}
+.skeleton-dark::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+}
+@keyframes shimmer {
+  to { transform: translateX(100%); }
+}
+
+/* Повага до налаштувань «менше руху» */
+@media (prefers-reduced-motion: reduce) {
+  .smart-img,
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .page-enter,
+  .slick-active .hero-content > *,
+  .skeleton::after {
+    animation: none !important;
+  }
+  .hero-photo {
+    transform: none !important;
+    transition: none !important;
+  }
+}

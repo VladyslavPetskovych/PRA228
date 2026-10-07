@@ -1,8 +1,11 @@
 import React from "react";
+import Seo from "../components/utils/Seo";
+import Reveal from "../components/utils/Reveal";
 
 export default function TermsAndConditions() {
   return (
     <div className="min-h-screen bg-brand-beige py-24 px-4 sm:px-6 lg:px-8 font-golos">
+      <Seo path="/terms-and-conditions" />
       <div className="max-w-4xl mx-auto mt-9 bg-brand-white shadow-xl rounded-3xl p-8 sm:p-12 border border-brand-black/10 relative overflow-hidden">
         {/* Decorative background accent */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-brand-orange/10 rounded-full blur-3xl opacity-40 pointer-events-none" />
@@ -20,7 +23,7 @@ export default function TermsAndConditions() {
         {/* Blocks */}
         <div className="space-y-12">
           {/* 1 */}
-          <section>
+          <Reveal as="section">
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
               1. Загальні положення
             </h2>
@@ -35,10 +38,10 @@ export default function TermsAndConditions() {
                 цілей.
               </li>
             </ul>
-          </section>
+          </Reveal>
 
           {/* 2 */}
-          <section>
+          <Reveal as="section">
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
               2. Бронювання та оплата
             </h2>
@@ -50,13 +53,13 @@ export default function TermsAndConditions() {
             
             <ul className="list-decimal pl-5 marker:text-brand-orange text-brand-black space-y-3">
               <li>Передоплата гарантує закріплення квартири.</li>
-              <li>При скасуваванні бронювання,безкоштовне повернення коштів - 30 днів до заїзду. (Протягом 3 банківських робочих днів)</li>
+              <li>При скасуванні бронювання не пізніше ніж за 30 днів до заїзду кошти повертаються безкоштовно (протягом 3 банківських робочих днів).</li>
 
             </ul>
-          </section>
+          </Reveal>
 
           {/* 3 */}
-          <section>
+          <Reveal as="section">
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
               3. Туристичний збір
             </h2>
@@ -82,10 +85,10 @@ export default function TermsAndConditions() {
               відповідних документів, туристичний збір необхідно сплатити
               додатково.
             </p>
-          </section>
+          </Reveal>
 
           {/* 4 */}
-          <section>
+          <Reveal as="section">
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
               4. Заселення та проживання
             </h2>
@@ -95,13 +98,13 @@ export default function TermsAndConditions() {
             </p>
             <ul className="list-disc pl-5 marker:text-brand-orange text-brand-black space-y-3">
               <li>Гість відповідає за збереження майна.</li>
-              <li>Куріння та надмірний шум заборонені!!!!!!!!</li>
+              <li>Куріння та надмірний шум заборонені!</li>
               <li>Адміністрація може припинити проживання при порушеннях.</li>
             </ul>
-          </section>
+          </Reveal>
 
           {/* 5 */}
-          <section>
+          <Reveal as="section">
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
               5. Конфіденційність та обробка даних
             </h2>
@@ -109,10 +112,10 @@ export default function TermsAndConditions() {
               Персональні дані використовуються лише для обробки бронювання і не
               передаються третім особам.
             </p>
-          </section>
+          </Reveal>
 
           {/* 6 */}
-          <section>
+          <Reveal as="section">
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
               6. Відповідальність сторін
             </h2>
@@ -121,10 +124,10 @@ export default function TermsAndConditions() {
               <li>Некоректні дії користувача.</li>
               <li>Помилки при введенні контактних даних.</li>
             </ul>
-          </section>
+          </Reveal>
 
           {/* 7 */}
-          <section>
+          <Reveal as="section">
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
               7. Зміни до правил
             </h2>
@@ -132,10 +135,10 @@ export default function TermsAndConditions() {
               Компанія залишає за собою право змінювати ці умови без
               попереднього повідомлення.
             </p>
-          </section>
+          </Reveal>
 
           {/* 8 */}
-          <section>
+          <Reveal as="section">
             <h2 className="text-2xl font-semibold text-brand-orange mb-4">
               8. Надавачі послуг
             </h2>
@@ -151,7 +154,7 @@ export default function TermsAndConditions() {
               <li>ФОП Шев'як М.М.</li>
               <li>ТзОВ "Арісто ІНС"</li>
             </ul>
-          </section>
+          </Reveal>
         </div>
 
         <div className="text-center mt-14 text-sm text-brand-black/60">

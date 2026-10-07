@@ -2,14 +2,15 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchApartments } from "../../redux/apartmentsSlice";
 import ApartmentCard from "./ApartmentCard";
+import Reveal from "../utils/Reveal";
 
 const SkeletonCard = () => (
-  <div className="animate-pulse rounded-3xl border border-gray-200 bg-white p-5 shadow-lg">
-    <div className="mb-4 h-44 w-full rounded-2xl bg-gray-200" />
-    <div className="mb-2 h-5 w-3/4 rounded bg-gray-200" />
-    <div className="mb-4 h-4 w-1/2 rounded bg-gray-200" />
-    <div className="mb-6 h-4 w-full rounded bg-gray-200" />
-    <div className="mt-4 h-8 w-28 rounded bg-gray-200" />
+  <div className="rounded-3xl border border-gray-200 bg-white p-5 shadow-lg">
+    <div className="skeleton mb-4 h-44 w-full rounded-2xl" />
+    <div className="skeleton mb-2 h-5 w-3/4 rounded" />
+    <div className="skeleton mb-4 h-4 w-1/2 rounded" />
+    <div className="skeleton mb-6 h-4 w-full rounded" />
+    <div className="skeleton mt-4 h-8 w-28 rounded" />
   </div>
 );
 
@@ -18,8 +19,9 @@ export default function ApartmentsGrid() {
   const { items = [], loading, error } = useSelector((s) => s.apartments);
 
   useEffect(() => {
-    if (!items || items.length === 0) dispatch(fetchApartments());
-  }, [dispatch]); // без items — щоб не перетягувати повторно
+    // повторні виклики відсікаються в самому thunk (condition)
+    dispatch(fetchApartments());
+  }, [dispatch]);
 
   return (
     <section className="relative py-10 sm:py-14 bg-[#F6F7F9]">
@@ -57,10 +59,10 @@ export default function ApartmentsGrid() {
 
         {!loading && items?.length > 0 && (
           <ul className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {items.map((apt) => (
-              <li key={apt._id || apt.id}>
+            {items.map((apt, i) => (
+              <Reveal as="li" key={apt._id || apt.id} delay={(i % 3) * 120}>
                 <ApartmentCard apartment={apt} />
-              </li>
+              </Reveal>
             ))}
           </ul>
         )}

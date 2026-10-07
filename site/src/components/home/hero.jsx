@@ -20,12 +20,6 @@ function Hero() {
     dispatch(fetchApartments());
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log("Отримані квартири з Redux:", apartments);
-    console.log("Статус завантаження:", loading);
-    console.log("Помилка:", error);
-  }, [apartments, loading, error]);
-
   const PrevArrow = ({ onClick }) => (
     <button
       onClick={onClick}
@@ -49,7 +43,8 @@ function Hero() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 700,
+    cssEase: "cubic-bezier(0.22, 1, 0.36, 1)",
     autoplay: false,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -106,7 +101,7 @@ function Hero() {
   if (loading) {
     return (
       <div className="relative">
-        <div className="aspect-[16/9] w-full animate-pulse bg-gray-200 rounded-xl" />
+        <div className="skeleton skeleton-dark min-h-[100vh] w-full" />
       </div>
     );
   }

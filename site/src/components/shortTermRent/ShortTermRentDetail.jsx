@@ -1,93 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import RoomGallery from "./RentDetail/RoomGallery";
 import RoomStats from "./RoomStats";
 import Contacts from "./Contacts";
-import { Helmet } from "react-helmet";
+import Seo from "../utils/Seo";
+import Reveal from "../utils/Reveal";
+import DetailSkeleton from "../utils/DetailSkeleton";
+import useRoom from "../../hooks/useRoom";
+import { apartmentSeo } from "../../seo/config";
 import Rules from "../utils/rules";
 import TouristTaxInfo from "../utils/TouristTaxInfo";
 
-const FALLBACK_IMG =
-  "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop";
-
 function ShortTermRentDetail() {
   const { id } = useParams();
-  const [room, setRoom] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { room, loading, error } = useRoom(id);
 
-  useEffect(() => {
-    const fetchRoom = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(
-          `https://primerestapartments.com/api/rooms/${id}`
-        );
-        setRoom(response.data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchRoom();
-  }, [id]);
-
-  if (loading) return <div className="text-center py-10">Завантаження...</div>;
-  if (error)
+  if (loading) return <DetailSkeleton />;
+  if (error || !room)
     return (
-      <div className="text-center py-10 text-red-600">
-        Помилка завантаження: {error.message}
+      <div className="text-center py-10 pt-32">
+        <Seo title="Квартира не знайдена | Prime Rest" noindex />
+        {error && error.response?.status !== 404 ? (
+          <span className="text-red-600">Помилка завантаження: {error.message}</span>
+        ) : (
+          "Квартира не знайдена"
+        )}
       </div>
     );
-  if (!room)
-    return <div className="text-center py-10">Квартира не знайдена</div>;
-
-  const pageTitle = room.name || "Квартира у Львові";
-  const pageDescription =
-    room.description?.substring(0, 160) ||
-    `${room.numRooms}-кімнатна квартира у Львові на короткострокову оренду.`;
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 pt-32 text-brand-black/70">
-      {/* SEO */}
-      <Helmet>
-        <title>{pageTitle} | Prime Rest Apartments</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:image" content={room.imgUrls?.[0] || FALLBACK_IMG} />
-        <meta property="og:type" content="website" />
-        <link
-          rel="canonical"
-          href={`https://primerestapartments.com/rooms/${id}`}
-        />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Apartment",
-            name: room.name,
-            description: room.description,
-            image: room.imgUrls?.[0] || FALLBACK_IMG,
-            numberOfRooms: room.numRooms,
-            floorSize: room.square,
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "вул. Замарстинівська, 76 б",
-              addressLocality: "Львів",
-              addressCountry: "UA",
-            },
-            price: room.pricePerDay,
-            priceCurrency: "UAH",
-            availability: "https://schema.org/InStock",
-          })}
-        </script>
-      </Helmet>
+      <Seo {...apartmentSeo(room, "short")} />
 
       {/* Заголовок */}
-      <header className="mb-8">
+      <Reveal as="header" className="mb-8">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-3 tracking-tight">
           {room.name || "Квартира"}
         </h1>
@@ -115,7 +61,7 @@ function ShortTermRentDetail() {
             Львів, вул. Замарстинівська, 76 б
           </a>
         </div>
-      </header>
+      </Reveal>
 
       {/* Основний макет */}
       <main className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -144,7 +90,11 @@ function ShortTermRentDetail() {
         </div>
 
         {/* Блок бронювання */}
-        <aside className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 flex flex-col gap-4 h-fit">
+        <Reveal
+          as="aside"
+          from="right"
+          delay={120}
+          className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 flex flex-col gap-4 h-fit">
           <div>
             <p className="text-2xl font-bold text-brand-black">
               Від {room.pricePerDay}{" "}
@@ -168,23 +118,23 @@ function ShortTermRentDetail() {
             <p>Виїзд: 11:00</p>
             <p>Мін. термін: 1 ніч</p>
           </div>
-        </aside>
+        </Reveal>
       </main>
 
       {/* Опис */}
       {room.description && (
-        <section className="mt-10 p-6 rounded-2xl bg-gray-50 border border-gray-200 shadow">
+        <Reveal as="section" className="mt-10 p-6 rounded-2xl bg-gray-50 border border-gray-200 shadow">
           <h2 className="text-2xl font-bold mb-3 text-brand-black">
             Опис квартири
           </h2>
           <p className="text-gray-700 leading-relaxed whitespace-pre-line">
             {room.description}
           </p>
-        </section>
+        </Reveal>
       )}
-      <section className="my-10">
+      <Reveal as="section" className="my-10">
         <Rules type="short" />
-      </section>
+      </Reveal>
     </div>
   );
 }

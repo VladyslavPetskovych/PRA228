@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Seo from "../components/utils/Seo";
 
 function Book() {
   useEffect(() => {
@@ -43,6 +44,8 @@ function Book() {
         minHeight: "90vh",
       }}
     >
+      <Seo path="/book" />
+      <h1 className="sr-only">Онлайн-бронювання квартир Prime Rest у Львові</h1>
       <div
         id="_baror_"
         style={{

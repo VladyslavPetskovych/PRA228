@@ -11,3 +11,5 @@ node_modules
 dist
 dist-ssr
 *.local
+# оптимізовані фото WuBook (генеруються scripts/optimize-images.mjs)
+public/img/wb

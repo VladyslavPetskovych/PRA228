@@ -1,5 +1,7 @@
 import React from "react";
+import { withPlural, BEDS, GUESTS } from "../../utils/plural";
 import ActionButton from "../../utils/buttons/actionButton";
+import SmartImage from "../../utils/SmartImage";
 
 // Іконки взяті з карток оренди (ApartmentCard / RoomStats)
 const iconProps = {
@@ -39,26 +41,27 @@ const Stat = ({ icon, children }) => (
 function SliderItem({ image, title, guests, beds, square, route, priority }) {
   return (
     <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-brand-black">
-      <img
+      <SmartImage
         src={image}
         alt={title || "Квартира у Львові"}
-        loading="eager"
-        fetchpriority={priority ? "high" : "auto"}
-        decoding="async"
+        sizes="100vw"
+        priority={priority}
+        // інші слайди теж вантажимо одразу, але з низьким пріоритетом — щоб не блимали
+        {...(!priority && { loading: "eager", fetchpriority: "low" })}
         width={1600}
         height={900}
-        className="absolute inset-0 h-full w-full object-cover"
+        className="hero-photo absolute inset-0 h-full w-full object-cover"
       />
 
       <div className="absolute inset-0 bg-black/40 z-0" />
 
-      <div className="relative z-10 text-white text-center px-4">
+      <div className="hero-content relative z-10 text-white text-center px-4">
         <div className="mb-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm tracking-wide">
-          <Stat icon={<GuestsIcon />}>{guests} гостей</Stat>
-          <Stat icon={<BedIcon />}>{beds} ліжка</Stat>
+          <Stat icon={<GuestsIcon />}>{withPlural(guests, GUESTS)}</Stat>
+          <Stat icon={<BedIcon />}>{withPlural(beds, BEDS)}</Stat>
           <Stat icon={<AreaIcon />}>{square}</Stat>
         </div>
-        <h1 className="text-5xl font-bold mb-4 whitespace-pre-line">{title}</h1>
+        <h2 className="text-5xl font-bold mb-4 whitespace-pre-line">{title}</h2>
 
         {/* ✅ тут уже готовий route */}
         <ActionButton text="Дізнатись більше" route={route} />

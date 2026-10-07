@@ -1,5 +1,7 @@
 import React, { useMemo } from "react";
+import { withPlural, BEDS, PERSONS_UPTO } from "../utils/plural";
 import { Link } from "react-router-dom";
+import SmartImage from "../utils/SmartImage";
 
 // запасна картинка
 const FALLBACK_IMG =
@@ -57,15 +59,15 @@ export default function ApartmentCard({ apartment }) {
   const a = useNormalized(apartment);
 
   return (
-    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition-shadow hover:shadow-2xl">
+    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl">
       {/* Фото */}
       <div className="relative h-44 w-full overflow-hidden bg-gray-100 md:h-52">
-        <img
+        <SmartImage
           src={a.imgUrl}
           alt={a.title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-          onError={(e) => (e.currentTarget.src = FALLBACK_IMG)}
+          sizes="(min-width: 1024px) 360px, (min-width: 768px) 50vw, 100vw"
+          fallback={FALLBACK_IMG}
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
 
         {/* бейджі */}
@@ -127,7 +129,7 @@ export default function ApartmentCard({ apartment }) {
               >
                 <path d="M216,72H32V48a8,8,0,0,0-16,0V208a8,8,0,0,0,16,0V176H240v32a8,8,0,0,0,16,0V112A40,40,0,0,0,216,72ZM32,88h72v72H32Zm88,72V88h96a24,24,0,0,1,24,24v48Z"></path>
               </svg>
-              <span>{a.beds} ліжка</span>
+              <span>{withPlural(a.beds, BEDS)}</span>
             </span>
           )}
 
@@ -142,7 +144,7 @@ export default function ApartmentCard({ apartment }) {
               >
                 <path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path>
               </svg>
-              <span>до {a.guests} осіб</span>
+              <span>до {withPlural(a.guests, PERSONS_UPTO)}</span>
             </span>
           )}
         </div>

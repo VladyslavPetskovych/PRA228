@@ -1,9 +1,12 @@
 import React from "react";
 import FuzzyText from "../components/utils/FuzzyText";
+import Seo from "../components/utils/Seo";
+import { NOT_FOUND } from "../seo/config";
 
 function NotFound() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-brand.white text-brand.black px-4 font-golos">
+      <Seo {...NOT_FOUND} noindex />
       <FuzzyText
         baseIntensity={0.2}
         hoverIntensity={0.6}
@@ -14,9 +17,9 @@ function NotFound() {
         404
       </FuzzyText>
 
-      <h2 className="text-3xl sm:text-4xl font-semibold mt-6 text-brand.black">
+      <h1 className="text-3xl sm:text-4xl font-semibold mt-6 text-brand.black">
         Сторінку не знайдено
-      </h2>
+      </h1>
 
       <p className="text-lg sm:text-xl mt-4 max-w-xl text-center text-brand.beige">
         Йой! Такої сторінки не існує або вона була переміщена.

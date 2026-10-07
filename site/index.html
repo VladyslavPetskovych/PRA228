@@ -5,62 +5,49 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Canonical + hreflang -->
-    <link rel="canonical" href="https://primerestapartments.com/" />
-    <link
-      rel="alternate"
-      href="https://primerestapartments.com/"
-      hreflang="uk"
-    />
-    <link
-      rel="alternate"
-      href="https://primerestapartments.com/"
-      hreflang="x-default"
-    />
+    <!-- SEO: цей блок замінюється для кожної сторінки (scripts/prerender-seo.mjs),
+         а в браузері — компонентом <Seo />. Атрибут data-react-helmet дозволяє Helmet
+         замінити теги, а не дублювати їх. -->
+    <!-- seo:start -->
+    <title>Оренда квартир у Львові подобово та довгостроково | Prime Rest</title>
+    <meta data-react-helmet="true" name="description" content="Сучасні квартири в оренду у Львові без посередників: подобово та на тривалий термін. Дизайнерський ремонт, закрита територія, паркування, підтримка 24/7." />
+    <meta data-react-helmet="true" name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link data-react-helmet="true" rel="canonical" href="https://primerestapartments.com/" />
+    <meta data-react-helmet="true" property="og:type" content="website" />
+    <meta data-react-helmet="true" property="og:site_name" content="Prime Rest Apartments" />
+    <meta data-react-helmet="true" property="og:locale" content="uk_UA" />
+    <meta data-react-helmet="true" property="og:title" content="Оренда квартир у Львові подобово та довгостроково | Prime Rest" />
+    <meta data-react-helmet="true" property="og:description" content="Сучасні квартири в оренду у Львові без посередників: подобово та на тривалий термін." />
+    <meta data-react-helmet="true" property="og:url" content="https://primerestapartments.com/" />
+    <meta data-react-helmet="true" property="og:image" content="https://primerestapartments.com/og/og-1200x630.jpg" />
+    <meta data-react-helmet="true" property="og:image:alt" content="Prime Rest Apartments — сучасні квартири в оренду у Львові" />
+    <meta data-react-helmet="true" name="twitter:card" content="summary_large_image" />
+    <meta data-react-helmet="true" name="twitter:title" content="Оренда квартир у Львові подобово та довгостроково | Prime Rest" />
+    <meta data-react-helmet="true" name="twitter:description" content="Сучасні квартири в оренду у Львові без посередників: подобово та на тривалий термін." />
+    <meta data-react-helmet="true" name="twitter:image" content="https://primerestapartments.com/og/og-1200x630.jpg" />
+    <!-- seo:end -->
 
-    <!-- Title & Meta -->
-    <title>Prime Rest Apartments – Оренда квартир у Львові</title>
-    <meta
-      name="description"
-      content="Prime Rest Apartments – сучасні квартири у Львові. Короткострокова та довгострокова оренда без посередників. Комфорт, стиль і власна парковка."
-    />
-    <meta
-      name="keywords"
-      content="Оренда квартир Львів, подобова оренда Львів, довгострокова оренда, житло без ріелтора, Prime Rest Apartments, сучасні квартири"
-    />
     <meta name="author" content="Prime Rest Apartments" />
-    <meta name="robots" content="index, follow" />
-    <meta
-      name="googlebot"
-      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-    />
-    <meta name="google" content="notranslate" />
+    <meta name="application-name" content="Prime Rest" />
+    <meta name="apple-mobile-web-app-title" content="Prime Rest" />
+    <meta name="format-detection" content="telephone=no" />
     <meta
       name="google-site-verification"
       content="B7yVdQeK-ByZVgDs_mecUO7hIfA9RFgfY1LyaDW7Hd8"
     />
 
     <!-- Icons -->
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f97316" />
     <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#1C1C1C" />
 
-    <!-- Theme Colors -->
-    <meta
-      name="theme-color"
-      content="#000000"
-      media="(prefers-color-scheme: light)"
-    />
-    <meta
-      name="theme-color"
-      content="#111827"
-      media="(prefers-color-scheme: dark)"
-    />
-    <meta name="color-scheme" content="light dark" />
-
-    <!-- Fonts -->
+    <!-- Performance -->
+    <link rel="preconnect" href="https://primerestapartments.com" />
+    <link rel="preconnect" href="https://wubook.net" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -68,69 +55,8 @@
       rel="stylesheet"
     />
 
-    <!-- Preload Hero Image -->
-    <link
-      rel="preload"
-      as="image"
-      href="https://primerestapartments.com/og/og-1200x630.jpg"
-      fetchpriority="high"
-    />
+    <!-- ld:business -->
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Prime Rest Apartments" />
-    <meta property="og:locale" content="uk_UA" />
-    <meta property="og:url" content="https://primerestapartments.com/" />
-    <meta
-      property="og:title"
-      content="Prime Rest Apartments – Сучасні квартири у Львові"
-    />
-    <meta
-      property="og:description"
-      content="Короткострокова та довгострокова оренда комфортних квартир без посередників."
-    />
-    <meta
-      property="og:image"
-      content="https://primerestapartments.com/og/og-1200x630.jpg"
-    />
-    <meta
-      property="og:image:alt"
-      content="Сучасні квартири у Львові — Prime Rest Apartments"
-    />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://primerestapartments.com/" />
-    <meta
-      name="twitter:title"
-      content="Prime Rest Apartments – Сучасні квартири у Львові"
-    />
-    <meta
-      name="twitter:description"
-      content="Короткострокова та довгострокова оренда комфортних квартир без посередників."
-    />
-    <meta
-      name="twitter:image"
-      content="https://primerestapartments.com/og/og-1200x630.jpg"
-    />
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Prime Rest Apartments",
-        "image": "https://primerestapartments.com/preview.jpg",
-        "url": "https://primerestapartments.com/",
-        "telephone": "+380777711400",
-        "description": "Сучасні квартири для короткострокової та довгострокової оренди без рієлторських комісій.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Львів, Замарстинівська 76б",
-          "addressCountry": "UA"
-        }
-      }
-    </script>
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -179,30 +105,6 @@
     </script>
     <!-- End Meta Pixel Code -->
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "name": "Prime Rest Apartments",
-            "url": "https://primerestapartments.com/",
-            "inLanguage": "uk"
-          },
-          {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Головна",
-                "item": "https://primerestapartments.com/"
-              }
-            ]
-          }
-        ]
-      }
-    </script>
   </head>
 
   <body>
@@ -214,7 +116,7 @@
         style="display: none"
         src="https://www.facebook.com/tr?id=4710264075963906&ev=PageView&noscript=1"
     /></noscript>
-    <div id="root"></div>
+    <div id="root"><!-- prerender --></div>
     <script type="module" src="/src/main.jsx"></script>
 
     <!-- Binotel GetCall widget -->

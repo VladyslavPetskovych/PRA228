@@ -1,4 +1,5 @@
 import React from "react";
+import Reveal from "../utils/Reveal";
 import {
   BadgePercent,
   Sparkles, // заміна замість Broom
@@ -49,19 +50,20 @@ export default function TopBlock() {
     <section className="relative pt-16 overflow-hidden bg-gradient-to-b from-brand-beige  to-[#F6F7F9]">
       <div className="mx-auto w-full max-w-6xl px-4 pt-16 pb-10 sm:pt-20 sm:pb-12">
         {/* Hero */}
-        <h1
+        <Reveal
+          as="h1"
           className="text-center font-golos font-extrabold tracking-tight text-brand-black leading-[1.1]
                      text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
         >
           Довгострокова оренда у<span className="text-brand-black"></span>{" "}
           <span className="text-brand-orange">Львові</span>
-        </h1>
+        </Reveal>
 
-        <p className="mx-auto mt-6 max-w-4xl text-center text-lg sm:text-xl text-neutral-700">
+        <Reveal as="p" delay={120} className="mx-auto mt-6 max-w-4xl text-center text-lg sm:text-xl text-neutral-700">
           Комфортне проживання від 1 місяця з повним сервісом та підтримкою. Ми
           надаємо ідеальні умови для тих, хто шукає надійне житло на тривалий
           період.
-        </p>
+        </Reveal>
 
         {/* Title of features */}
         <h2
@@ -78,8 +80,10 @@ export default function TopBlock() {
                      bg-opacity-90 rounded-3xl p-2 sm:p-3"
         >
           {features.map((f, i) => (
-            <article
+            <Reveal
+              as="article"
               key={i}
+              delay={(i % 2) * 120}
               className="rounded-2xl bg-brand-white shadow-[0_10px_24px_rgba(0,0,0,0.07)]
                          border border-black/5 p-6 sm:p-7 transition
                          hover:shadow-[0_14px_32px_rgba(0,0,0,0.10)]"
@@ -97,7 +101,7 @@ export default function TopBlock() {
                   </p>
                 </div>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

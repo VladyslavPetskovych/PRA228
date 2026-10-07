@@ -1,16 +1,6 @@
 // RoomStats.jsx
 import React from "react";
-
-// Функція для правильного відмінювання
-function getLabel(number, forms) {
-  number = Math.abs(number) % 100;
-  const n1 = number % 10;
-
-  if (number > 10 && number < 20) return forms[2];
-  if (n1 > 1 && n1 < 5) return forms[1];
-  if (n1 === 1) return forms[0];
-  return forms[2];
-}
+import { plural, BEDS, GUESTS, ROOMS } from "../utils/plural";
 
 export default function RoomStats({ room }) {
   if (!room) return null; // щоб уникнути помилки, якщо room ще не завантажений
@@ -30,7 +20,7 @@ export default function RoomStats({ room }) {
         </svg>
         <span className="text-lg font-bold">
           {room.numRooms || 1}{" "}
-          {getLabel(room.numRooms || 1, ["кімната", "кімнати", "кімнат"])}
+          {plural(room.numRooms || 1, ROOMS)}
         </span>
       </div>
 
@@ -64,7 +54,7 @@ export default function RoomStats({ room }) {
           </svg>
         </span>
         <span className="text-lg font-bold">
-          {room.guests} {getLabel(room.guests, ["гість", "гостей", "гостей"])}
+          {room.guests} {plural(room.guests, GUESTS)}
         </span>
       </div>
 
@@ -82,7 +72,7 @@ export default function RoomStats({ room }) {
           </svg>
         </span>
         <span className="text-lg font-bold">
-          {room.beds} {getLabel(room.beds, ["ліжко", "ліжка", "ліжок"])}
+          {room.beds} {plural(room.beds, BEDS)}
         </span>
       </div>
     </div>

@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
-import logo2 from "../../../assets/logo/logoShortVertical.png";
+import logo from "../../../assets/logo/logo.png";
 
 function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-1 font-golos cursor-pointer">
-      {/* <img
+    <Link
+      to="/"
+      className="flex h-24 items-center font-golos cursor-pointer"
+      aria-label="Prime Rest Apartments — на головну"
+    >
+      <img
         src={logo}
-        className="w-12 h-12 rounded-full bg-brand-orange p-1"
-        alt="Prime Yard logo"
+        alt="Prime Rest Apartments"
+        width="542"
+        height="160"
+        fetchpriority="high"
+        className="h-9 w-auto"
       />
-      <div className="flex flex-col leading-tight">
-        <span className="text-xl font-bold text-brand-beige">Prime Yard</span>
-        <span className="text-sm text-brand-beige tracking-wide">
-          Apartments
-        </span>
-      </div> */}
-      <img src={logo2} className="h-24" alt="" />
     </Link>
   );
 }

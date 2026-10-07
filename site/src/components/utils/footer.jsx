@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo/logoShortVertical.png";
+import logo from "../../assets/logo/logo.png";
 
 function Footer() {
   return (
@@ -8,7 +8,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <img src={logo} alt="Prime Yard" className="h-16 md:h-24" />
+            <img
+              src={logo}
+              alt="Prime Rest Apartments"
+              width="542"
+              height="160"
+              loading="lazy"
+              className="h-6 md:h-8 w-auto"
+            />
           </div>
           <p className="text-sm opacity-70">
             Стильні квартири для вашого комфортного відпочинку у Львові.
@@ -20,8 +27,11 @@ function Footer() {
           <Link to="/" className="hover:text-white transition">
             Головна
           </Link>
-          <Link to="/apartments" className="hover:text-white transition">
-            Квартири
+          <Link to="/short-term-rent" className="hover:text-white transition">
+            Подобова оренда
+          </Link>
+          <Link to="/long-term-rent" className="hover:text-white transition">
+            Довгострокова оренда
           </Link>
           <Link to="/book" className="hover:text-white transition">
             Забронювати

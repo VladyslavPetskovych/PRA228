@@ -1,4 +1,5 @@
 import React from "react";
+import Reveal from "../utils/Reveal";
 
 export default function TopBlock({ onSearch }) {
   function handleSubmit(e) {
@@ -19,20 +20,20 @@ export default function TopBlock({ onSearch }) {
 
       <div className="mx-auto w-full max-w-6xl px-4 pt-16 pb-10 sm:pt-20 sm:pb-14">
         {/* Заголовок */}
-        <h1 className="text-center font-moderustic text-4xl font-extrabold leading-tight text-brand-black sm:text-5xl lg:text-6xl">
+        <Reveal as="h1" className="text-center font-moderustic text-4xl font-extrabold leading-tight text-brand-black sm:text-5xl lg:text-6xl">
           Ваш ідеальний дім у<span className="text-brand-orange"></span>
           <br />
           <span className="text-brand-orange">Львові</span>
-        </h1>
+        </Reveal>
 
         {/* Підзаголовок */}
-        <p className="mx-auto mt-4 max-w-2xl text-center font-golos text-brand-black/80 sm:text-lg">
+        <Reveal as="p" delay={120} className="mx-auto mt-4 max-w-2xl text-center font-golos text-brand-black/80 sm:text-lg">
           Оберіть з нашої колекції комфортних квартир для короткострокової
           оренди. Кожна квартира обладнана всім необхідним для вашого комфорту.
-        </p>
+        </Reveal>
 
         {/* Цифри */}
-        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-6 text-center sm:mt-12">
+        <Reveal from="zoom" delay={240} className="mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-6 text-center sm:mt-12">
           <div>
             <div className="font-moderustic text-3xl font-extrabold text-brand-orange">
               500+
@@ -57,7 +58,7 @@ export default function TopBlock({ onSearch }) {
               Середній рейтинг
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
