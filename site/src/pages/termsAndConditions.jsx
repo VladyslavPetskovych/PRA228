@@ -148,10 +148,9 @@ export default function TermsAndConditions() {
             </p>
             <ul className="list-disc pl-5 marker:text-brand-orange text-brand-black space-y-3">
               <li>ФОП Химочка С-Л. А.</li>
-              <li>ФОП Химочка Р.А.</li>
-              <li>ФОП Шев'як О.В.</li>
-              <li>ФОП Дмитрик К.В.</li>
               <li>ФОП Шев'як М.М.</li>
+              <li>ФОП Клочко Л.В.</li>
+              <li>ФОП Кондратенко Л.М.</li>
               <li>ТзОВ "Арісто ІНС"</li>
             </ul>
           </Reveal>
